@@ -1,12 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Document</title>
-	</head>
-	<body></body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Wasselni</title>
+</head>
+
+<body>
+    <div id="side-bar" class="side-bar">
+        <img class="close" id="close" src="images/close.png" alt="">
+        <ul>
+            <a href="signin.html">
+                <li>Account</li>
+            </a>
+            <li>Contact us</li>
+            <li>FAQ</li>
+            <li>Places</li>
+            <li>Services</li>
+            <li>Drive with us</li>
+        </ul>
+    </div>
+    <header style="padding-top: 2px;">
+        <a href="index.html">
+            <div class="logo"><span>W</span>asselni</div>
+        </a>
+        <ul>
+            <img src="images/hamburger.png" alt="" id="back">
+        </ul>
+    </header>
+    <main>
+        </div>
+        <img class="map-img map-img-no-animation" src="images/haze-map.png" alt="map">
+        <img class="app-img map-img-no-animation" src="images/app.png" alt="app">
+        <img class="app-img map-img-no-animation welcome-gif" src="images/welcome.gif" alt="phone">
+
+        <section>
+            <div class="hero1">
+                <p class="no-cursive">WELCOME ONBOARD <span>[USER]!</span></p>
+                <p class="no-cursive">You're now in <span>[LOCATION]</span></p>
+                <p style="font-size: 16px;" class="no-cursive">Where would you like to go?</p>
+            </div>
+        </section>
+        <form class="form">
+            <input type="text" class="input-field destination" placeholder="Destination"> <br />
+
+        </form>
+        <a href="service.html"><button class="btn-1">Find me a driver</button></a><br /><br />
+
+        <a id="not-pickup" style="font-size: 15px; color: blue; cursor: pointer;">My pick up location is is different
+            from my current
+            location </a>
+        <div id="change-location" class="change-location">
+            <img class="down-arrow" id="down-arrow" src="images/back-arrow.png" alt="">
+            </br>
+            <p style="font-weight: 700;">Enter your pick up location</p>
+            <form action="">
+                <input type="text" class="input-field location" placeholder="Pick up location">
+            </form>
+            <button onclick="showMap()" id="show-iframe" class="btn-1">Find location</button>
+            <iframe id="iframe-1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.553539975243!2d35.47847707619742!3d33.38272005278518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151e94a67860f493%3A0x993e2e0f49fab5ef!2sInstitut%20Fran%C3%A7ais%20de%20Nabatieh!5e0!3m2!1sen!2slb!4v1699709734679!5m2!1sen!2slb"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </main>
+
+
+    <script src="index.js"></script>
+    <script src="script.js"></script>
+</body>
+
 </html>
