@@ -129,8 +129,19 @@ label {
 .notification {
     width: 60%;
     margin: auto;
-    position: absolute;
-    top: 40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 50px;
+    visibility: hidden;
+}
+.notification-register {
+    width: 60%;
+    margin: auto;
+    position: fixed;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
@@ -138,7 +149,7 @@ label {
     visibility: hidden;
 }
 
-.notification u {
+.notification u, .notification-register u {
     color: red;
     text-align: center;
     cursor: pointer;
@@ -147,7 +158,7 @@ label {
 /* ----------------- driver registrataion -------------------- */
 
 .register-section {
-    background-color: #FCF6B1;
+    width: 100%;
     margin-top: 5px;
     border-radius: 5px;
     display: flex;
@@ -180,13 +191,18 @@ label {
     
 }
 
-.register-section input {
+.register-section input, select {
     border-radius: 5px;
     border: none;
     width: 300px;
     height: 40px;
     text-align: left;
     padding: 0 10px;
-    margin: 8px 5px 15px;
-    
+    margin: 8px 5px 15px; 
 }
+ .personal-register, .vehicle-register {
+    background-color: #fcf6b149;
+    width: 80%;
+    height: fit-content;
+
+ }

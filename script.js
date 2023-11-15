@@ -77,3 +77,17 @@ function showNotification() {
     document.getElementById('notification').style.visibility = 'hidden';
 
  }
+
+ //  to show driver registration completion notification
+
+function showNotificationRegister() {
+    document.getElementById('notification-register').style.visibility = 'visible';
+
+
+}
+
+//  to hide driver registration completion notification
+function hideNotificationRegister() {
+    document.getElementById('notification-register').style.visibility = 'hidden';
+
+ }
