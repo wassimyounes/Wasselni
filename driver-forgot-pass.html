@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wasselni | driver home</title>
+<link rel="stylesheet" href="driver.css">
+</head>
+
+<body>
+    <header>
+        <a href="driver-index.html">
+            <div class="logo"><span>W</span>asselni</div>
+        </a>
+        <ul>
+            <a href="driver-index.html"><img src="images/back-arrow.png" alt=""></a>
+        </ul>
+    </header>
+    <main>
+
+        <section>
+            <h3>Forgot you password?</h3>
+            <h4 style="margin-top: -100px;">Please follow the instructions to retrieve it.</h4>
+            <form style="margin-top: -100px;">
+                <label for="username">Enter your user name</label>
+                    <input type="text" id="username" name="username" placeholder=" User name" required>
+                    <label for="email">Enter your E-mail address</label>
+                    <input type="email" id="email" placeholder="E-mail">
+                    <button onclick="showNotification()" class="btn-driver">Submit</button> 
+            </form>
+
+        </section>
+        <div style="opacity: 1;" id="notification" class="notification">
+            <h4>We've sent a link to your E-mail address</h4>
+            <h5>please visit your E-mail and follow the instructions there</h5>
+            <br>
+            <u onclick="hideNotification()">ok</u>
+        </div>
+    </main>
+   <script src="script.js"></script>
+</body>
+
+</html>

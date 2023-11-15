@@ -1,5 +1,5 @@
 
-
+// to change currrent location
 window.onload = function () {
 
     const link = document.getElementById('not-pickup');
@@ -13,7 +13,7 @@ window.onload = function () {
 
 
 
-
+//  to hide current location setting window
 const hideWindow = function () {
 
     const locator = document.getElementById('change-location');
@@ -27,7 +27,7 @@ downArrow.addEventListener('click', () => {
 
 
 
-
+//  to show map
 function showMap() {
     const iframe = document.getElementById('iframe-1');
 
@@ -36,22 +36,22 @@ function showMap() {
 
 
 
-
-function proceedToCode() {
-    document.getElementById('form-shown').style.display = 'none';
-    document.getElementById('form-hidden').style.display = 'block';
-    document.getElementById('shown-next').style.display = 'block';
-}
-
-
+//  to show SMS code window
+// function proceedToCode() {
+//     document.getElementById('form-shown').style.display = 'none';
+//     document.getElementById('form-hidden').style.display = 'block';
+//     document.getElementById('shown-next').style.display = 'block';
+// }
 
 
+
+// to show SMS code window
 function showCodeWindow() {
     document.getElementById('submit-code').style.display = 'flex';
 }
 
 
-
+// to hide SMS code window
 function hideCodeWindow() {
     document.getElementById('submit-code').style.display = 'none';
 
@@ -64,4 +64,16 @@ document.getElementById('down-arrow-code').addEventListener('click', () => {
 
 
 
+//  to show driver notification (forgot password)
 
+function showNotification() {
+    document.getElementById('notification').style.visibility = 'visible';
+
+
+}
+
+//  to show driver notification (forgot password)
+ function hideNotification() {
+    document.getElementById('notification').style.visibility = 'hidden';
+
+ }
