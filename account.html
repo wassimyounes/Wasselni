@@ -52,36 +52,36 @@
                         <label for="name">Name</label>
                         <img src="images/edit-field.png" alt="">
                     </div>
-                        <input type="text" id="name" readonly placeholder="someone" >
+                    <input type="text" id="name" readonly placeholder="someone">
                     <div class="lbl-wrap">
                         <label for="phone-number">Phone number</label>
                         <img src="images/edit-field.png" alt="">
                     </div>
-                        <input type="text" id="phone-number" readonly placeholder="12345678" >
+                    <input type="text" id="phone-number" readonly placeholder="12345678">
                     <div class="lbl-wrap">
                         <label for="email">E-mail</label>
                         <img src="images/edit-field.png" alt="">
                     </div>
-                        <input type="text" id="email" readonly placeholder="someone@example.com" >
+                    <input type="text" id="email" readonly placeholder="someone@example.com">
                     <div class="lbl-wrap">
                         <label for="password">Password</label>
                         <img src="images/edit-field.png" alt="">
                     </div>
-                        <input type="text" id="password" readonly placeholder="********" >
+                    <input type="text" id="password" readonly placeholder="********">
                     <div class="lbl-wrap">
                         <label for="home-address">Home address</label>
                         <img src="images/edit-field.png" alt="">
                     </div>
-                        <input type="text" id="home-address" readonly placeholder="somwhere" >
+                    <input type="text" id="home-address" readonly placeholder="somwhere">
                     <div class="lbl-wrap">
                         <label for="word-address">Work address</label>
                         <img src="images/edit-field.png" alt="">
                     </div>
-                        <input type="text" id="word-address" readonly placeholder="somwhere" >
+                    <input type="text" id="word-address" readonly placeholder="somwhere">
                 </form>
             </div>
         </section>
-        <div class="settings-bar" id="settings-bar" >
+        <div class="settings-bar" id="settings-bar">
             <ul>
                 <li>Personal information</li>
                 <li>Security</li>
@@ -93,15 +93,25 @@
         </div>
     </main>
 
-<script>
+    <script>
+        //  to manage account (open control bar)
+        const manageAccount = function () {
+            let controlBar = document.getElementById('settings-bar')
+            controlBar.style.visibility = 'visible';
+        }
+        const settingsIcon = document.getElementById('settings-icon').addEventListener('click', manageAccount);
 
-const manageAccount =function() {
-    let controlBar = document.getElementById('settings-bar')
-    controlBar.style.visibility = 'visible';
-}
-const settingsIcon = document.getElementById('settings-icon').addEventListener('click', manageAccount);
+        //  to choose an option and close the control bar
+        let controlBar = document.getElementById('settings-bar')
+        let controlOption = document.querySelectorAll('.settings-bar ul li');
 
-</script>
+        controlOption.forEach((e) => {
+            e.addEventListener('click', () => {
+                controlBar.style.visibility = 'hidden';
+
+            })});
+
+    </script>
     <script src="script.js"></script>
     <script src="index.js"></script>
 </body>
