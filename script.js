@@ -6,10 +6,12 @@ window.onload = function () {
     link.addEventListener('click', () => {
 
         const locator = document.getElementById('change-location');
-        locator.style.display = 'flex';
+        locator.style.visibility = 'visible';
     })
 
 }
+
+
 
 
 
@@ -18,7 +20,7 @@ const hideWindow = function () {
 
     const locator = document.getElementById('change-location');
 
-    locator.style.display = 'none';
+    locator.style.visibility = 'hidden';
 }
 const downArrow = document.querySelector('.down-arrow');
 downArrow.addEventListener('click', () => {
@@ -57,7 +59,6 @@ function hideCodeWindow() {
 
 }
 document.getElementById('down-arrow-code').addEventListener('click', () => {
-    console.log('hello')
     hideCodeWindow();
 })
 
@@ -73,12 +74,12 @@ function showNotification() {
 }
 
 //  to show driver notification (forgot password)
- function hideNotification() {
+function hideNotification() {
     document.getElementById('notification').style.visibility = 'hidden';
 
- }
+}
 
- //  to show driver registration completion notification
+//  to show driver registration completion notification
 
 function showNotificationRegister() {
     document.getElementById('notification-register').style.visibility = 'visible';
@@ -90,4 +91,14 @@ function showNotificationRegister() {
 function hideNotificationRegister() {
     document.getElementById('notification-register').style.visibility = 'hidden';
 
- }
+}
+
+
+//   to show the side bar profile nav
+
+
+
+
+
+
+
