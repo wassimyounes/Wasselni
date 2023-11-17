@@ -38,14 +38,6 @@ function showMap() {
 
 
 
-//  to show SMS code window
-// function proceedToCode() {
-//     document.getElementById('form-shown').style.display = 'none';
-//     document.getElementById('form-hidden').style.display = 'block';
-//     document.getElementById('shown-next').style.display = 'block';
-// }
-
-
 
 // to show SMS code window
 function showCodeWindow() {
@@ -94,7 +86,6 @@ function hideNotificationRegister() {
 }
 
 
-//   to show the side bar profile nav
 
 
 
