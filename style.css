@@ -658,19 +658,13 @@ main .booking-section .offer .available {
 }
 
 .settings-bar {
-    width: 45%;
-    background-color: #bcdbea;
-    position: fixed;
+    width: 40%;
+    position: absolute;
     visibility: hidden;
-    bottom: 5px;
-    left: 5px;
-    animation: come 2s ease;
+    top: 150px;
+    right: 0;
 }
 
-@keyframes come {
-    0% {bottom: -400px;}
-    100% {bottom: 5px;}
-}
 
 .settings-bar ul {
     padding: 0;
@@ -680,10 +674,10 @@ main .booking-section .offer .available {
 }
 
 .settings-bar ul li {
-    padding: 20px;
-    width: 95%;
+    padding: 10px;
+    width: 85%;
     margin: 1px auto;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 600;
     background-color:#5399bedf;
     border-top: 0.5px solid rgba(0, 0, 0, 0.45) ;

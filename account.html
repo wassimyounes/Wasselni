@@ -46,8 +46,8 @@
                 </ul>
             </div> <br>
             <div class="user-panel">
-                <h4>Personal information</h4>
-                <form action="">
+                <h4 class="option-title">Personal information</h4>
+                <form style="display: none;" id="personal-informationopt" action="">
                     <div class="lbl-wrap">
                         <label for="name">Name</label>
                         <img src="images/edit-field.png" alt="">
@@ -79,26 +79,47 @@
                     </div>
                     <input type="text" id="word-address" readonly placeholder="somwhere">
                 </form>
+                <form style="display: none;" id="securityopt" action="">
+                    <div class="lbl-wrap">
+                        <details>
+                            <summary>Blocked users</summary>
+                            <p>driver one</p><span style="color: blue;">unblock</span>
+                            <p>driver two</p><span style="color: blue;">unblock</span>
+                            <p>driver three</p><span style="color: blue;">unblock</span>
+                        </details>
+                    </div> <br><br>
+                    <input type="radio" id="yes" name="card" value="yes" />
+                    <label for="contactChoice1">Yes</label>
+              
+                    <input type="radio" id="no" name="card" value="no" />
+                    <label for="contactChoice2">No</label>
+
+
+                </form>
+            </div>
+            <div class="settings-bar" id="settings-bar">
+                <ul>
+                    <li class="personal-information">Personal information</li>
+                    <li class="security">Security</li>
+                    <li class="privacy">Privacy</li>
+                    <li class="credits">Credits and points</li>
+                    <li class="complaints">Complaints</li>
+                    <li>Logout</li>
+                </ul>
             </div>
         </section>
-        <div class="settings-bar" id="settings-bar">
-            <ul>
-                <li>Personal information</li>
-                <li>Security</li>
-                <li>Privacy</li>
-                <li>Credits and points</li>
-                <li>Complaints</li>
-                <li>Logout</li>
-            </ul>
-        </div>
     </main>
 
     <script>
         //  to manage account (open control bar)
         const manageAccount = function () {
-            let controlBar = document.getElementById('settings-bar')
-            controlBar.style.visibility = 'visible';
-        }
+            let controlBar = document.getElementById('settings-bar');
+            if( controlBar.style.visibility === 'hidden') {
+                controlBar.style.visibility = 'visible';
+            } else {
+                controlBar.style.visibility = 'hidden';
+            }
+        } 
         const settingsIcon = document.getElementById('settings-icon').addEventListener('click', manageAccount);
 
         //  to choose an option and close the control bar
@@ -107,9 +128,32 @@
 
         controlOption.forEach((e) => {
             e.addEventListener('click', () => {
-                controlBar.style.visibility = 'hidden';
+                if (e === document.querySelector('.security')) {
+                    document.querySelector('.option-title').innerHTML = "Security";
+                    controlBar.style.visibility = 'hidden';
+                    document.getElementById('securityopt').style.display = '';
+                    document.getElementById('personal-informationopt').style.display ='none';
+                }
+                else if (e === document.querySelector('.privacy')) {
+                    document.querySelector('.option-title').innerHTML = "Privacy";
+                    controlBar.style.visibility = 'hidden';
+                }
+                else if (e === document.querySelector('.credits')) {
+                    document.querySelector('.option-title').innerHTML = "Credits";
+                    controlBar.style.visibility = 'hidden';
+                }
+                else if (e === document.querySelector('.complaints')) {
+                    document.querySelector('.option-title').innerHTML = "Complaints";
+                    controlBar.style.visibility = 'hidden';
+                }
+                else {
+                    document.querySelector('.option-title').innerHTML = "Personal information";
+                    controlBar.style.visibility = 'hidden';
+                    document.getElementById('personal-informationopt').style.display ='';
+                }
 
-            })});
+            })
+        });
 
     </script>
     <script src="script.js"></script>
