@@ -210,3 +210,108 @@ label {
     height: fit-content;
 
  }
+
+ /* ----------------------driver's portal --------------------- */
+ .unavailable-screen {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    width: 80%;
+    line-height: 80px;
+    height: 80px;
+    background-color: #ffffff5a;
+    text-align: center;
+    color: red;
+
+ }
+
+ .driver-portal-sct {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.driver-portal-sct details  {
+    background-color: #FCF6B1;
+    margin: 5px auto;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+    box-shadow: 2px 4px 15px 0px rgba(0,0,0,0.75);
+}
+
+
+
+.driver-portal-sct p {
+    font-size: 18px;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.status {
+    margin: auto;
+    border-radius: 40px;
+    background-color: #fcf6b18f;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.status p {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+ .btn-status-available{
+    width:150px;
+    height: 40px;
+    color: #fff;
+    background-color: green;
+    border-radius: 25px;
+    border: none;
+ }
+ .btn-status-unavailable{
+    width:150px;
+    height: 40px;
+    color: #fff;
+    background-color:red;
+    border-radius: 25px;
+    border: none;
+ }
+
+
+
+
+ .accept {
+    width: 80px;
+    margin: 18px;
+    background-color: #F7B32B;
+    border: none;
+    height: 25px;
+    border-radius: 15px;
+ }
+
+
+ .seeonmap-btn {
+    width: 120px;
+    border: none;
+    height: 25px;
+    border-radius: 15px;
+    background-color: aqua;
+ }
+ .ignore-btn {
+    width: 80px;
+    border: none;
+    height: 25px;
+    margin: 18px 18px 18px 0;
+    border-radius: 15px;
+    background-color:chocolate;
+ }

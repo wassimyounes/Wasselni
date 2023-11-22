@@ -443,7 +443,7 @@ main a {
 .submit-code {
     background-color: #bcdbea;
     box-shadow: 2px 2px 3px #72bce778;
-    display: flex;
+    display: none;
     border-radius: 5px;
     flex-direction: column;
     justify-content: start;
@@ -453,7 +453,6 @@ main a {
     height: 40vh;
     width: 100%;
     z-index: 1;
-    display: none;
     animation: up 0.5s ease;
 }
 
