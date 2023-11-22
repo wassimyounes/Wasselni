@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "hidden";
   }
 });
-  // << dom loaded
+// << dom loaded
 //  to show map
 function showMap() {
   const iframe = document.getElementById("iframe-1");
@@ -113,18 +113,49 @@ function hideNotificationRegister() {
 }
 
 //  to toggle driver's avialability button
-
-let btn = document.getElementById("btn-status");
-btn.addEventListener("click", () => {
-  if (btn.className === "btn-status-available") {
-    btn.className = "btn-status-unavailable";
-    btn.innerHTML = "unavailable";
-    document.getElementById("driver-portal-sct").style.visibility = "hidden";
-    document.querySelector(".unavailable-screen").style.display = "block";
-  } else {
-    btn.className = "btn-status-available";
-    btn.innerHTML = "available";
-    document.getElementById("driver-portal-sct").style.visibility = "visible";
-    document.querySelector(".unavailable-screen").style.display = "none";
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  let btn = document.getElementById("btn-status");
+  btn.addEventListener("click", () => {
+    if (btn.className === "btn-status-available") {
+      btn.className = "btn-status-unavailable";
+      btn.innerHTML = "unavailable";
+      document.getElementById("driver-portal-sct").style.visibility = "hidden";
+      document.querySelector(".unavailable-screen").style.display = "block";
+    } else {
+      btn.className = "btn-status-available";
+      btn.innerHTML = "available";
+      document.getElementById("driver-portal-sct").style.visibility = "visible";
+      document.querySelector(".unavailable-screen").style.display = "none";
+    }
+  });
 });
+
+//  validate forms
+//  validate start page form
+const validate = () => {
+  document.addEventListener("DOMContentLoaded", () => {
+    const fullNameUser = document.getElementById("fullnameuser");
+    const numberUser = document.getElementById("phonenumberuser");
+    const startSubmit = document.getElementById("start-submit");
+    const validationError = document.getElementById("validation-error");
+
+    fullNameUser.addEventListener("input", () => {
+      if (fullNameUser.value.match(/[^a-z]/i)) {
+        validationError.style.display = "block";
+        validationError.innerHTML = "No special characters or numbers allowed";
+      } else {
+        validationError.innerHTML = "";
+        validationError.style.display = "none";
+      }
+    });
+
+    document.getElementById("demo").addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log(fullNameUser.value);
+      console.log(numberUser);
+      console.log(startSubmit);
+    });
+  });
+};
+
+validate();
