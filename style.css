@@ -683,7 +683,7 @@ main .booking-section .offer .available {
 
 /*  validations */
 
-#validation-error {
+.validation-error {
     display: none;
     color: red;
     background-color: #ffffff52;

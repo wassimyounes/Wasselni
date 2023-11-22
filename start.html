@@ -27,13 +27,14 @@
                 <p class="no-cursive">we just need a couple of information</p>
             </div>
         </section>
-        <form action="" class="form">
+        <form action="" class="form" method= get >
             <input type="text" id="fullnameuser" class="input-field" placeholder="Full name" >
-            <p id="validation-error"></p>
-            <input type="text" id="phonenumberuser" class="input-field" placeholder="Phone number" >
-            <a href="code.html"><button class="btn-1" id="start-submit" disabled>Submit</button></a>
-            <a href="signin.html"><button class=" btn btn-2">I already have an account</button></a>
+            <p id="validation-error" class="validation-error"></p>
+            <input type="tel" id="phonenumberuser" class="input-field" placeholder="Phone number" >
+            <p id="validation-error-phone" class="validation-error"></p>
+            <input type="submit"  class="btn-1" id="start-submit">
         </form>
+        <a href="signin.html"><button class=" btn btn-2">I already have an account</button></a>
     </main>
 
 

@@ -138,9 +138,10 @@ const validate = () => {
     const numberUser = document.getElementById("phonenumberuser");
     const startSubmit = document.getElementById("start-submit");
     const validationError = document.getElementById("validation-error");
+    const validationErrorPhone = document.getElementById("validation-error-phone");
 
     fullNameUser.addEventListener("input", () => {
-      if (fullNameUser.value.match(/[^a-z]/i)) {
+      if (fullNameUser.value.match(/[^a-z|' ']/i)) {
         validationError.style.display = "block";
         validationError.innerHTML = "No special characters or numbers allowed";
       } else {
@@ -148,14 +149,29 @@ const validate = () => {
         validationError.style.display = "none";
       }
     });
+    numberUser.addEventListener("input", () => {
+      const inptValue = numberUser.value;
+      const length = inptValue.length;
+      if (!inptValue.match(/(03|70|71|76|78|79|81)/)) {
+        validationErrorPhone.style.display = "block";
+        validationErrorPhone.innerHTML = "Invalid dial code ";
+      }
+      else if (length > 8) {
+        validationErrorPhone.style.display = "block";
+        validationErrorPhone.innerHTML = "Invalid phone number";
+      } 
+      else if (inptValue.match(/[' ']/)) {
+           validationErrorPhone.style.display = "block";
+      validationErrorPhone.innerHTML = "no space or special characterd allowed";   
+      }
+   
 
-    document.getElementById("demo").addEventListener("click", (e) => {
-      e.preventDefault();
-      console.log(fullNameUser.value);
-      console.log(numberUser);
-      console.log(startSubmit);
+      else {
+        validationErrorPhone.innerHTML = "";
+        validationErrorPhone.style.display = "none";
+      }
     });
+
   });
 };
-
 validate();
