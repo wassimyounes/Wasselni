@@ -156,13 +156,19 @@ const validate = () => {
         validationErrorPhone.style.display = "block";
         validationErrorPhone.innerHTML = "Invalid dial code ";
       }
+
+      else if (inptValue.match(/[0-9]{2}[^0-9]/)) {
+        validationErrorPhone.style.display = "block";
+   validationErrorPhone.innerHTML = "No space or special characterd allowed";   
+   }
       else if (length > 8) {
         validationErrorPhone.style.display = "block";
         validationErrorPhone.innerHTML = "Invalid phone number";
       } 
-      else if (inptValue.match(/[' ']/)) {
+   
+      else if (inptValue.match(/[a-z]/i)) {
            validationErrorPhone.style.display = "block";
-      validationErrorPhone.innerHTML = "no space or special characterd allowed";   
+      validationErrorPhone.innerHTML = "No letters or special characterd allowed";   
       }
    
 
@@ -175,3 +181,13 @@ const validate = () => {
   });
 };
 validate();
+
+
+// active tab 
+const tabs = document.querySelectorAll('.nav-bar ul li').forEach((e) => {
+  e.addEventListener('click', ()=> {
+    let current = document.querySelector('.active');
+    current.classList.remove('active');
+    e.classList.add('active');
+  })
+})
