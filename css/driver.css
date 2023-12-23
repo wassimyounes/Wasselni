@@ -84,7 +84,7 @@ section p {
 
 .btn-driver {
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 0 60px;
     border-radius: 38px;
     width: 250px;
     border: none;
@@ -95,6 +95,14 @@ section p {
     justify-content: space-between;
     text-align: center;
 
+}
+
+#error {
+    color: red;
+    font-size: 12px;
+    margin: auto;    
+    text-align: center;
+    padding: 2px 0;
 }
 
 /* ----------------- sign in -------------------- */
@@ -204,7 +212,7 @@ label {
     padding: 0 10px;
     margin: 8px 5px 15px; 
 }
- .personal-register, .vehicle-register {
+ .personal-register{
     background-color: #fcf6b149;
     width: 80%;
     height: fit-content;

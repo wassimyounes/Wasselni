@@ -31,49 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
     hideWindow();
   });
 
-  //  to show map
-  function showMap() {
-    const iframe = document.getElementById("iframe-1");
-    iframe.style.display = "block";
-  }
-
-  // to show SMS code window
-  function showCodeWindow() {
-    document.getElementById("submit-code").style.display = "flex";
-  }
-
-  // to hide SMS code window
-
-  function hideCodeWindow() {
-    document.getElementById("submit-code").style.display = "none";
-  }
-
-  //  to show driver notification (forgot password)
-
-  function showNotification() {
-    document.getElementById("notification").style.visibility = "visible";
-  }
-
-  //  to show driver notification (forgot password)
-  function hideNotification() {
-    document.getElementById("notification").style.visibility = "hidden";
-  }
-
-  //  to show driver registration completion notification
-
-  function showNotificationRegister() {
-    document.getElementById("notification-register").style.visibility =
-      "visible";
-  }
-
-  //  to hide driver registration completion notification
-  function hideNotificationRegister() {
-    document.getElementById("notification-register").style.visibility =
-      "hidden";
-  }
+  
 });
 // << dom loaded
-//  to show map
+// //  to show map
 function showMap() {
   const iframe = document.getElementById("iframe-1");
   iframe.style.display = "block";
@@ -84,13 +45,13 @@ function showCodeWindow() {
   document.getElementById("submit-code").style.display = "flex";
 }
 
-// to hide SMS code window
+// // to hide SMS code window
 
 function hideCodeWindow() {
   document.getElementById("submit-code").style.display = "none";
 }
 
-//  to show driver notification (forgot password)
+// //  to show driver notification (forgot password)
 
 function showNotification() {
   document.getElementById("notification").style.visibility = "visible";
@@ -101,16 +62,7 @@ function hideNotification() {
   document.getElementById("notification").style.visibility = "hidden";
 }
 
-//  to show driver registration completion notification
 
-function showNotificationRegister() {
-  document.getElementById("notification-register").style.visibility = "visible";
-}
-
-//  to hide driver registration completion notification
-function hideNotificationRegister() {
-  document.getElementById("notification-register").style.visibility = "hidden";
-}
 
 //  to toggle driver's avialability button
 document.addEventListener("DOMContentLoaded", () => {

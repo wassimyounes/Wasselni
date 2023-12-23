@@ -27,38 +27,29 @@
             <section style="margin-top: 0;" class="personal-register">
                 <u>Please note that provided information and personal data shall be true and has to be supported by
                     legal documents.</u>
-                <form class="registarion-form">
+                    <p id="error"></p>
+                <form id="reg-form-driver" class="registarion-form">
                     <p>personal information</p style="font-size: 12px; text-align: center;">
                     <label for="firstname">First name *</label>
-                    <input type="text" id="firstname" placeholder="first name" required>
+                    <input name="firstname" type="text" id="first-name" placeholder="first name" required>
                     <label for="firstname">Last name *</label>
-                    <input type="text" id="firstname" placeholder="Last name" required>
-                    <label for="middlename">Middle name *</label>
-                    <input type="text" id="middlename" placeholder="Middle name" required>
-                    <label for="date-of-birth">Date of birth *</label>
-                    <input type="date" id="date-of-birth" placeholder="Date of birth" required>
+                    <input name="lastname" type="text" id="last-name" placeholder="Last name" required>
                     <label for="email-address">E-mail address *</label>
-                    <input type="email" id="email-address" placeholder="Email address" required>
+                    <input name="email" type="email" id="email-address" placeholder="Email address" required>
                     <label for="phone-number">Phone number *</label>
-                    <input type="tel" id="phone-number" placeholder="Phone number" required>
-                    <label for="Identification">Identification document(s) *</label>
-                    <input type="file" id="Identification" placeholder="ex. ID, passport, etc..." required>
-                </form>
-            </section>
-            <section style="margin-top: -50px;" class="vehicle-register">
-                <form class="registarion-form">
+                    <input name="phone" type="tel" id="phone-number" placeholder="Phone number" required>
                     <p>Vehicle information</p>
                     <label for="vehicle-type">Vehicle type *</label>
-                    <select type="text" id="vehicle-type" placeholder="Vehicle type" required>
-                        <option>Choose one</option>
+                    <select name="vehicletype" type="text" id="vehicle-type" placeholder="Vehicle type" required>
+                        <option  value="" disabled selected >Choose one</option>
                         <option value="Sedan">Sedan</option>
                         <option value="hatchback">Hatchback</option>
                         <option value="mini van">Mini Van</option>
                         <option value="motorcycle">Motorcycle</option>
                     </select>
-                    <label for="vehicle-made">Vehicle made *</label>
-                    <select type="text" id="vehicle-made" placeholder="Vehicle made" required>
-                        <option>Choose one</option>
+                    <label for="vehicle-make">Vehicle make *</label>
+                    <select name="vehiclemake" type="text" id="vehicle-make" placeholder="Vehicle make" required>
+                        <option value="" disabled selected>Choose one</option>
                         <option value="alfa Romio">Alfa Romio</option>
                         <option value="bmw">BMW</option>
                         <option value="ford">Ford</option>
@@ -70,8 +61,8 @@
                         <option value="toyota">Toyota</option>
                     </select>
                     <label for="year">year *</label>
-                    <select type="text" id="vehicle-year" placeholder="Vehicle made" required>
-                        <option>Choose year</option>
+                    <select name="vehicleyear" type="text" id="vehicle-year" placeholder="Vehicle made" required>
+                        <option value="" disabled selected >Choose year</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
@@ -83,16 +74,14 @@
                         <option value="2015">2015</option>
                         <option value="2014">2014</option>
                     </select>
-                    <label for="vehicle-license">Vehicle registration license *</label>
-                    <input type="file" id="vehicle-license">
-                    <label for="driving-license">Driving license *</label>
-                    <input type="file" id="driving-license"> <br>
+                    <label for="vehicle-license">License plate *</label>
+                    <input name="Licenseplate" type="text" id="vehicle-license" required> <br>
+                    <button onclick="submitForm()" class="btn-driver" >Register</button>
                 </form>
-                <button onclick="showNotificationRegister()" class="btn-driver" >Register</button>
+                <br>
                 <br>
                 <br>
             </section>
-
         </section>
         <div id="notification-register" class="notification-register">
             <h4>Thanks for your registration</h4>
@@ -102,6 +91,7 @@
         </div>
     </main>
    <script src="../script.js"></script>
+   <script src="../app.js"></script>
 </body>
 
 </html>
