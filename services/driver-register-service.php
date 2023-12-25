@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 // last inserted id to reference the primary key in the first table acting as a foreign key in the second table
                  $lastInsertedId = $conn->lastInsertId();
     
-                // inserting to vehicle_info table
+                // inserting into vehicle_info table
                 $stmt2 = $conn->prepare("INSERT INTO vehicle_info (driver_id, vehicle_type, vehicle_make, year, license_plate)
                 VALUES (:driver_id, :vehicletype, :vehiclemake, :vehicleyear, :Licenseplate)");
                 $stmt2->bindParam(':driver_id', $lastInsertedId);
