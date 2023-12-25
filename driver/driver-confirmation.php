@@ -17,7 +17,7 @@ $inspectedHmac = hash_hmac("sha256", $receivedSecretKey, $r_token);
 // echo "inspected Hmac: " . $inspectedHmac . "<br>";
 
 
-if ($inspectedHmac === $inspectedHmac) {
+if ($receivedHmac === $inspectedHmac) {
     echo '<!DOCTYPE html>
     <html>
     <head>
