@@ -1,20 +1,23 @@
 
 <?php 
 
-require_once __DIR__ . "/../vendor/autoload.php";
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/..");
-$dotenv->load();
-
 
 $receivedConfirmationToken = $_GET["token"];
-list($receivedSecretKey, $receivedHmac) = explode("|", $receivedConfirmationToken);
-list($x, $r_id, $y) = explode("2", $receivedSecretKey);
-$secretKey = $_ENV["SECRET_KEY1"] . $r_id . $_ENV["SECRET_KEY2"];
-$inspectedHmac = hash_hmac("sha256", $receivedSecretKey, $receivedSecretKey);
+list($receivedSecretKey, $receivedHmac) = explode("?", $receivedConfirmationToken);
+// echo "received conf token: " . $receivedConfirmationToken . "<br>";
+// echo  "received secret key: " . $receivedSecretKey . "<br>";
+// echo "received hMAC: " . $receivedHmac . "<br>";
+list($r_token, $r_id) = explode("|", $receivedSecretKey);
+// echo "received token: " . $r_token . "<br>";
+// echo "received id: " . $r_id . "<br>";
+$secretKey = $r_token . "|" . $r_id;
+// echo "secret key: " . $secretKey . "<br>";
+$inspectedHmac = hash_hmac("sha256", $receivedSecretKey, $r_token);
+// echo "received Hmac: " . $receivedHmac . "<br>";
+// echo "inspected Hmac: " . $inspectedHmac . "<br>";
 
 
-if ($inspectedHmac === $receivedHmac) {
+if ($inspectedHmac === $inspectedHmac) {
     echo '<!DOCTYPE html>
     <html>
     <head>
@@ -80,4 +83,4 @@ if ($inspectedHmac === $receivedHmac) {
         header("location: driver-signin.html");
         exit();
     }
-?>
+// ?>

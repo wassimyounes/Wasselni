@@ -8,11 +8,18 @@ use PHPMailer\PHPMailer\Exception;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/..");
 $dotenv->load();
 
+$emailUsername = $_ENV["EMAIL_USERNAME"];
+$emailPassword = $_ENV["EMAIL_PASSWORD"];
+// echo $emailUsername . "<br>";
+// echo $emailPassword;
+
 $mail = new PHPMailer(true);
-        // $id = ?;
-        // $secretKey = $_ENV["SECRET_KEY1"] . $id . $_ENV["SECRET_KEY2"];
-        // $hmac = hash_hmac("sha256", $secretKey, $secretKey);
-        // $confirmationToken =$secretKey . "|" . $hmac;
+        // $id = 1;
+        // $token = bin2hex(random_bytes(16));
+        // echo $token . "<br>";
+        // $secretKey = $token . "|" . $id;
+        // $hmac = hash_hmac("sha256", $secretKey, $token);
+        // $confirmationToken =$secretKey . "?" . $hmac;
         // echo $confirmationToken . "<br>";
         // $confirmationLink = "http://localhost/wasselni/driver/driver-confirmation.php?token=$confirmationToken";
         // echo $confirmationLink . "<br>";
@@ -23,12 +30,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         $id = $data["id"];
         $email = $data["email"];
         $firstname = $data["firstName"];
-        $secretKey = $_ENV["SECRET_KEY1"] . $id . $_ENV["SECRET_KEY2"];
-        $hmac = hash_hmac("sha256", $secretKey, $secretKey);
-        $confirmationToken =$secretKey . "|" . $hmac;
-        // echo $confirmationToken . "<br>";
-        $confirmationLink = "http://localhost/token-test/driver-confirmation.php?token=$confirmationToken";
-        // echo $confirmationLink . "<br>";
+       $token = bin2hex(random_bytes(16));
+        echo $token . "<br>";
+        $secretKey = $token . "|" . $id;
+        $hmac = hash_hmac("sha256", $secretKey, $token);
+        $confirmationToken =$secretKey . "?" . $hmac;
+        echo $confirmationToken . "<br>";
+        $confirmationLink = "http://localhost/wasselni/driver/driver-confirmation.php?token=$confirmationToken";
+        echo $confirmationLink . "<br>";
     } else {
         echo json_encode("no data received");
         return;
@@ -41,13 +50,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->isSMTP();                                        
         $mail->Host       = 'smtp.gmail.com';                   
         $mail->SMTPAuth   = true;                                  
-        $mail->Username   = 'dohayounes201@gmail.com';                   
-        $mail->Password   = 'vpzv doln nktn qwmn';                              
+        $mail->Username   = $emailUsername;                   
+        $mail->Password   = $emailPassword;                              
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           
         $mail->Port       = 465;                                   
     
         //Recipients
-        $mail->setFrom('dohayounes201@gmail.com', 'Wasselni');
+        $mail->setFrom('noreply@wasselni.com', 'Wasselni');
         $mail->addAddress($email, $firstname);  
     
     
