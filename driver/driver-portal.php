@@ -1,10 +1,18 @@
+<?php
+session_start();
+
+// echo $_SESSION["driver_id"] . "<br>";
+// echo $_SESSION["driver_name"]  . "<br>";
+// echo $_SESSION["driver_email"]  . "<br>";
+?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wasselni | driver portal</title>
+    <script src="https://kit.fontawesome.com/d7d12ce728.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/driver.css">
 </head>
 
@@ -14,12 +22,19 @@
             <div class="logo"><span>W</span>asselni</div>
         </a>
         <ul>
-            <li><a href="driver-signin.html">sign in</a></li>
+            <form action="../services/driver-logout.php" method="post">
+            <button class="logout-btn"><i class="fa-solid fa-right-from-bracket fa-xl"></i></button>
+            </form>
         </ul>
     </header>
     <main>
         <div class="unavailable-screen">
         Make yourself available to view requests</div>
+        <div class="prof">
+        <p><?php echo $_SESSION["driver_name"] . "<br>";?> </p>
+        <p><i class="fa-solid fa-gear fa-lg"></i></p>
+
+        </div>
         <section id="driver-portal-sct" class="driver-portal-sct">
             <details class="request-card">
                 <summary>

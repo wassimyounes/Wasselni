@@ -80,7 +80,7 @@ if ($receivedHmac === $inspectedHmac) {
         $stmt->execute([$hashedPassword, $r_id]);
         // echo "submitted";
         $conn = null;
-        header("location: driver-signin.html");
+        header("location: driver-signin.php");
         exit();
     }
-// ?>
+?>
