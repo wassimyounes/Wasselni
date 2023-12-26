@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Wasselni</title>
+</head>
+
+<body>
+    <div id="side-bar" class="side-bar">
+        <img class="close" id="close" src="../images/close.png" alt="">
+        <ul>
+            <a href="account.html">
+                <li>Account</li>
+            </a>
+            <li>Contact us</li>
+            <li>FAQ</li>
+            <li>Places</li>
+            <li>Services</li>
+        </ul>
+    </div>
+    <header>
+        <a href="../index.html">
+            <div class="logo"><span>W</span>asselni</div>
+        </a>
+        <ul>
+            <img src="../images/hamburger.png" alt="" id="back">
+            <div id="nav-bar" class="nav-bar">
+                <ul>
+                    <a href="signin.html">
+                        <li>Account</li>
+                    </a>
+                    <li>Contact us</li>
+                    <li>FAQ</li>
+                    <li>Places</li>
+                    <li>Services</li>
+                    <a href="../driver/driver-index.html">
+                        <li class="driver-option">Drive with us</li>
+                    </a>
+                </ul>
+            </div>
+        </ul>
+    </header>
+    <main>
+        </div>
+        <img class="map-img map-img-no-animation" src="../images/haze-map.png" alt="map">
+        <img class="app-img map-img-no-animation" src="../images/app.png" alt="app">
+        <img class="app-img map-img-no-animation welcome-gif" src="../images/welcome.gif" alt="phone">
+
+        <section>
+            <div class="hero1">
+                <p class="no-cursive">WELCOME ONBOARD <span>[USER]!</span></p>
+                <p style="font-size: 16px;" class="no-cursive">Where would you like to go?</p>
+            </div>
+        </section>
+        <form class="form">
+            <input type="text" class="input-field destination" placeholder="Destination"> <br />
+
+        </form>
+        <a href="service.html"><button class="btn-1">Find me a driver</button></a><br /><br />
+
+        <a id="not-pickup" style="font-size: 15px; color: blue; cursor: pointer;">My pick up location is is different
+            from my current
+            location </a>
+        <div id="change-location" class="change-location">
+            <img class="down-arrow" id="down-arrow" src="../images/back-arrow.png" alt="">
+            </br>
+            <form action="">
+                <input type="text" class="input-field location" placeholder="Pick up location">
+            </form>
+
+            <div id="map"></div>
+        </div>
+    </main>
+    <script src="../map.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv0uA6ijVASrxeATuyipiMZwmT7Lasq4g&callback=initMap&libraries=&v=weekly">
+        </script>
+    <script src="../script.js"></script>
+</body>
+
+</html>
