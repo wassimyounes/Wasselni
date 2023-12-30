@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d7d12ce728.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="../css/style.css">
     <title>Wasselni</title>
 </head>
@@ -51,33 +54,44 @@
 
         <section>
             <div class="hero1">
-                <p class="no-cursive">WELCOME ONBOARD <span>[USER]!</span></p>
-                <p style="font-size: 16px;" class="no-cursive">Where would you like to go?</p>
+                <p class="no-cursive">Good day, <span>user</span></p>
+                <p style="font-size: 16px;" class="no-cursive">let's manage your trip</p>
             </div>
         </section>
         <form class="form">
-            <input type="text" class="input-field destination" placeholder="Destination"> <br />
-
+            <div class="destination">
+            <input type="text" class="input-field" id="pickup-location" placeholder="Pick up" required autocomplete="off"> 
+            <a class="my-location" id="my-location" title="my location"><i class="fa-solid fa-location-dot fa-bounce fa-2xl"></i></a> 
+            <div id="suggestions-pickup" ></div>
+            </div>
+            <input type="text" class="input-field" id="drop-location" placeholder="Destination" required autocomplete="off"> 
+            <div id="suggestions-drop" ></div>
         </form>
-        <a href="service.html"><button class="btn-1">Find me a driver</button></a><br /><br />
-
-        <a id="not-pickup" style="font-size: 15px; color: blue; cursor: pointer;">My pick up location is is different
-            from my current
-            location </a>
-        <div id="change-location" class="change-location">
+        <button id="lets-go" class="btn-1" onclick="measureDistance()" >Let's go</button>
+        <div id="alert-input"></div>
+        <!-- trip info -->
+        <div id="trip-info" class="trip-info">
             <img class="down-arrow" id="down-arrow" src="../images/back-arrow.png" alt="">
+
             </br>
-            <form action="">
-                <input type="text" class="input-field location" placeholder="Pick up location">
-            </form>
+            <!-- trip distance time and fare -->
+            <div id="trip-dtf" class="trip-dtf">  
+                <i id="trip-icon" class="fa-solid fa-lg fa-bars"></i>
+                <p style="display: none;" id="fCoords"></p>
+                <p style="display: none;" id="tCoords"></p>
+                <p id="distance"></p>
+                <p id="time"></p>
+                <p id="fare"></p>
+
+            </div>
 
             <div id="map"></div>
         </div>
     </main>
-    <script src="../map.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv0uA6ijVASrxeATuyipiMZwmT7Lasq4g&callback=initMap&libraries=&v=weekly">
-        </script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="../maps-and-geocodes/geocodes.js"></script>
+    <script src="../maps-and-geocodes/map.js"></script>
     <script src="../script.js"></script>
 </body>
 

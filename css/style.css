@@ -3,6 +3,7 @@
     font-family: sans-serif;
     list-style: none;
     text-decoration: none;
+    letter-spacing: 0.7px;
     /* border: 0.1px solid #d41818; */
 }
 
@@ -10,7 +11,7 @@
 body {
     position: relative;
     margin: auto;
-    /* max-width: 500px; */
+    max-width: 500px;
     height: 100vh;
     /* background-color: #5398BE; */
     background-color: #85C7F2;
@@ -374,6 +375,15 @@ main a {
 }
 
 /* ----------------welcome page---------------------- */
+.my-location {
+    margin-left: -40px;
+    top: 16px;
+    position: absolute;
+    border: #012c44 1px solid;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
 
 .welcome-gif {
     width: 400px;
@@ -382,10 +392,62 @@ main a {
 }
 
 .destination {
-    margin-top: -50px;
+    margin-top: -60px;
+    text-align: center;
+    position: relative;
 }
 
-.change-location {
+
+#suggestions-pickup {
+    margin-top: -7px;
+    overflow-y: scroll;
+    width: 280px;
+    left: 50%;
+    border: none;
+    transform: translateX(-50%);
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+}
+
+#suggestions-pickup div {
+    min-height: 50px;
+    border-top: 1px solid #4d77abb5;
+    border-bottom: 1px solid #4d77abb5;
+    background-color: #cdd5df;
+    padding: 8px;
+}
+
+#suggestions-drop {
+    margin-top: -7px;
+    overflow-y: scroll;
+    width: 280px;
+    left: 50%;
+    border: none;
+    transform: translateX(-50%);
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+}
+
+#suggestions-drop div {
+    min-height: 50px;
+    border-top: 1px solid #4d77abb5;
+    border-bottom: 1px solid #4d77abb5;
+    background-color: #cdd5df;
+    padding: 8px;
+}
+
+#alert-input {
+    margin: auto;
+    margin-top: 10px;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    color: red;
+}
+
+.trip-info {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -400,6 +462,47 @@ main a {
     visibility: hidden;
     animation: upward 0.2s ease;
 }
+
+#trip-icon {
+    cursor: pointer;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+}
+
+.trip-dtf {
+    z-index: 1000000;
+    background-color: #5399bec9;
+    width: 90%;
+    overflow: hidden;
+}
+.trip-dtf-hidden {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+#trip-dtf p {
+    opacity: 0.5;
+    font-weight: 700;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.leaflet-routing-container, .leaflet-bar, .leaflet-control {
+    display: none;
+}
+
+#map {
+    position: absolute;
+    bottom: 5px;
+    scale: 1;
+}
+
+
+
+
+
+
 @keyframes upward {
     0% {bottom: -750px;}
     100% {bottom: 0px;}
