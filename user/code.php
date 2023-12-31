@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION["from_server"])) {
+    header("location: start.html");
+    exit();
+}
+unset($_SESSION["from_server"])
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,15 +46,18 @@
                 <p class="no-cursive">Please enter the code below</p>
             </div>
         </section>
-        <form class="form">
+        <form class="form" action="../services/user-signup-service.php" method="post">
             <div class="sms-code">
-                <input type="text" class="code" required>
-                <input type="text" class="code" required>
-                <input type="text" class="code" required>
-                <input type="text" class="code" required>
+                <input type="text" class="code" name="received-verification-code" required>
             </div>
+            <?php
+            if(isset($_GET["error"]) && $_GET["error"] === "1") {
+                echo "<p style='color: red; text-align: center; margin-top: -33px'> Invalid code </p>";
+            }
+            ?>
+            <button class=" btn">Submit</button>
         </form>
-       <a href="set-password.html"><button class=" btn">Submit</button></a>
+
     </main>
 
     <script src="../script.js"></script>

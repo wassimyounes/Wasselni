@@ -37,10 +37,10 @@
                 <p class="no-cursive">we just need a couple of information</p>
             </div>
         </section>
-        <form action="" class="form" method= get >
-            <input type="text" id="fullnameuser" class="input-field" placeholder="Full name" >
+        <form action="../services/user-signup-service.php" class="form" method="post">
+            <input type="text" id="nameuser" name="name" class="input-field" placeholder=" Your name" required >
             <p id="validation-error" class="validation-error"></p>
-            <input type="tel" id="phonenumberuser" class="input-field" placeholder="Phone number" >
+            <input type="tel" id="phonenumberuser" name="phone" class="input-field" placeholder="Phone number" required >
             <p id="validation-error-phone" class="validation-error"></p>
             <input type="submit"  class="btn-1" id="start-submit">
         </form>
