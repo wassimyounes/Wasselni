@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION["name"])) {
+    header("location: welcome.php");
+    exit();
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +22,10 @@
     <header>
         <a href="start.html"><div class="logo"><span>W</span>asselni</div></a>
         <ul>
-            <a class="bk-arrow" href="index.html"><img src="../images/back-arrow.png" alt="" ></a>
+            <a class="bk-arrow" href="../index.html"><img src="../images/back-arrow.png" alt="" ></a>
             <div id="nav-bar" class="nav-bar">
                 <ul>
-                    <a href="signin.html"><li class="active">Sign in</li></a>
+                    <a href="signin.php"><li class="active">Sign in</li></a>
                     <li>Contact us</li>
                     <li>FAQ</li>
                     <li>Places</li>
@@ -37,16 +47,20 @@
 
             </div>
         </section>
-        <form class="form">
+        <form class="form" action="../services/user-login-service.php" method="POST">
         <?php
             if(isset($_GET["error"]) && $_GET["error"] === "2") {
                 echo "<p style='color: red; text-align: center; margin-top: -33px'> Phone number already exists, try to sign in</p>";
             }
+            if(isset($_SESSION["error"])) {
+                echo "<p style='color: red; text-align: center; margin-top: -33px'> Wrong Credentials</p>";
+            }
+
             ?>
-            <input type="tel" class="input-field" placeholder="Phone number" >
-            <input type="text" class="input-field" placeholder="Password" >
+            <input type="tel" name="phone" class="input-field" placeholder="Phone number" >
+            <input type="text" name="password" class="input-field" placeholder="Password" >
+            <a><button class="btn-1">Submit</button></a>
         </form>
-        <a href="welcome.html"><button class="btn-1">Submit</button></a>
         <a href="forgot-password.html"><button class="btn-1">forgot password?</button></a>
     </main>
 
