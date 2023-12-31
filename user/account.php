@@ -1,9 +1,17 @@
+<?php
+session_start();
+if(!isset($_SESSION["name"])) {
+    header("location: start.html");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d7d12ce728.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
     </link>
     <title>Wasselni</title>
@@ -48,10 +56,12 @@
                 <div class="profile-img">
                     <img src="../images/user.png" alt="user-img">
                 </div>
-                <p class="profile-name">[Someone]</p>
+                <p class="profile-name"><?php echo $_SESSION["name"]?></p>
                 <ul class="profile-set">
                     <li>
-                        <p>logout</p>
+                    <form action="../services/user-logout.php" method="post">
+            <button class="logout-btn"><i class="fa-solid fa-right-from-bracket fa-xl"></i></button>
+            </form>
                     </li>
                 </ul>
             </div> <br>

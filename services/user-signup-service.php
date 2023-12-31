@@ -92,7 +92,8 @@ if(isset($_POST['received-verification-code'])) {
     # comparing and validating code
     if($receivedCode == $storedVerificationCode) {
         echo "validated<br>";
-        header("location: ../user/set-password.html"); 
+        $_SESSION["from_server"] = true;
+        header("location: ../user/set-password.php"); 
         exit();
     } else {
         $_SESSION["from_server"] = true;
@@ -119,14 +120,27 @@ if(isset($_POST['received-verification-code'])) {
         // echo $storedPhone . "<br>";
         // echo $password . "<br>";
         // echo $hashedPassword . "<br>";
-        $stmt = $conn->prepare("INSERT INTO users (name, phonenumber, password)
-        VALUES (:name, :phonenumber, :password)");
-        $stmt->bindParam(':name', $storedName);
-        $stmt->bindParam(':phonenumber', $storedPhone);
-        $stmt->bindParam(':password', $hashedPassword);
-        echo "added to db";
-        $stmt->execute();
-        // $conn = null;
+        $doesExist = $conn->prepare("SELECT * FROM users WHERE phonenumber = :phonenumber");
+        $doesExist->bindParam(":phonenumber", $storedPhone);
+        $doesExist->execute();
+        // password exists?
+        if($doesExist->rowCount() > 0) {
+            header("location: ../user/signin.php?error=2");
+            echo "phone number exists";
+        } else {
+            $stmt = $conn->prepare("INSERT INTO users (name, phonenumber, password)
+            VALUES (:name, :phonenumber, :password)");
+            $stmt->bindParam(':name', $storedName);
+            $stmt->bindParam(':phonenumber', $storedPhone);
+            $stmt->bindParam(':password', $hashedPassword);
+            echo "added to db";
+            $stmt->execute();
+            $_SESSION["from_server"] = true;
+            $_SESSION["name"] = $storedName;
+            $_SESSION["phone"] = $storedPhone;
+            header("location: ../user/welcome.php");
+        }
+        $conn = null;
     }
 
 

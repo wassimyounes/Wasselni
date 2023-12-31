@@ -341,6 +341,14 @@ main a {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
+.logout-btn {
+    background-color: #4D78AB;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
 .phone-img {
     top: 50px;
     left: 30px;
@@ -392,11 +400,6 @@ main a {
     height: 30px;
 }
 
-.welcome-gif {
-    width: 400px;
-    top: 100px;
-    opacity: 0.1;
-}
 
 .destination {
     margin-top: -60px;

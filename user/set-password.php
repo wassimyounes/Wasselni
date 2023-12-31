@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION["from_server"])) {
+    header("location: start.html");
+    exit();
+}
+unset($_SESSION["from_server"])
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

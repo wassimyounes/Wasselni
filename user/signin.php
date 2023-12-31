@@ -38,6 +38,11 @@
             </div>
         </section>
         <form class="form">
+        <?php
+            if(isset($_GET["error"]) && $_GET["error"] === "2") {
+                echo "<p style='color: red; text-align: center; margin-top: -33px'> Phone number already exists, try to sign in</p>";
+            }
+            ?>
             <input type="tel" class="input-field" placeholder="Phone number" >
             <input type="text" class="input-field" placeholder="Password" >
         </form>

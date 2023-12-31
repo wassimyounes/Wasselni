@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION["name"])) {
+    header("location: start.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d7d12ce728.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"/>
     <link rel="stylesheet" href="../css/style.css">
     <title>Wasselni</title>
 </head>
@@ -15,7 +21,7 @@
     <div id="side-bar" class="side-bar">
         <img class="close" id="close" src="../images/close.png" alt="">
         <ul>
-            <a href="account.html">
+            <a href="account.php">
                 <li>Account</li>
             </a>
             <li>Contact us</li>
@@ -32,7 +38,7 @@
             <img src="../images/hamburger.png" alt="" id="back">
             <div id="nav-bar" class="nav-bar">
                 <ul>
-                    <a href="signin.html">
+                    <a href="account.php">
                         <li>Account</li>
                     </a>
                     <li>Contact us</li>
@@ -50,11 +56,10 @@
         </div>
         <img class="map-img map-img-no-animation" src="../images/haze-map.png" alt="map">
         <img class="app-img map-img-no-animation" src="../images/app.png" alt="app">
-        <img class="app-img map-img-no-animation welcome-gif" src="../images/welcome.gif" alt="phone">
 
         <section>
             <div class="hero1">
-                <p class="no-cursive">Good day, <span>user</span></p>
+                <p class="no-cursive">Good day, <span style="text-transform: capitalize;"><?php echo $_SESSION["name"]?></span></p>
                 <p style="font-size: 16px;" class="no-cursive">let's manage your trip</p>
             </div>
         </section>
