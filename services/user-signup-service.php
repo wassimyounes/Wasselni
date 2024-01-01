@@ -123,22 +123,31 @@ if(isset($_POST['received-verification-code'])) {
         $doesExist = $conn->prepare("SELECT * FROM users WHERE phonenumber = :phonenumber");
         $doesExist->bindParam(":phonenumber", $storedPhone);
         $doesExist->execute();
-        // password exists?
+        // phone number exists?
         if($doesExist->rowCount() > 0) {
             header("location: ../user/signin.php?error=2");
             echo "phone number exists";
         } else {
-            $stmt = $conn->prepare("INSERT INTO users (name, phonenumber, password)
-            VALUES (:name, :phonenumber, :password)");
-            $stmt->bindParam(':name', $storedName);
-            $stmt->bindParam(':phonenumber', $storedPhone);
-            $stmt->bindParam(':password', $hashedPassword);
-            echo "added to db";
-            $stmt->execute();
-            $_SESSION["from_server"] = true;
-            $_SESSION["name"] = $storedName;
-            $_SESSION["phone"] = $storedPhone;
-            header("location: ../user/welcome.php");
+            try {
+                $conn->beginTransaction();
+                $stmt = $conn->prepare("INSERT INTO users (name, phonenumber, password)
+                VALUES (:name, :phonenumber, :password)");
+                $stmt->bindParam(':name', $storedName);
+                $stmt->bindParam(':phonenumber', $storedPhone);
+                $stmt->bindParam(':password', $hashedPassword);
+                echo "added to db";
+                $stmt->execute();
+                $id = $conn->lastInsertId();
+                $_SESSION["user-id"] = $id;
+                $conn->commit();
+                $_SESSION["from_server"] = true;
+                $_SESSION["name"] = $storedName;
+                $_SESSION["phone"] = $storedPhone;
+                header("location: ../user/welcome.php");
+            } catch (PDOException $e) {
+                $conn->rollBack();
+                echo "Error: " . $e->getMessage();
+            }
         }
         $conn = null;
     }

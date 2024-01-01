@@ -33,7 +33,7 @@ session_start();
       }
       ?>
       <form action="../services/driver-signin-service.php" method="post">
-        <input type="email" id="username" name="email" placeholder="User name" required autocomplete="off">
+        <input type="email" id="username" name="email" placeholder="Email" required autocomplete="off">
         <input type="password" id="password" name="password" required placeholder="Password"  autocomplete="off"><br><br>
 
         <div class="button">

@@ -13,7 +13,8 @@ $emailPassword = $_ENV["EMAIL_PASSWORD"];
 
 
 $mail = new PHPMailer(true);
-        $id = 1;
+        //  fot testing only ---- driver's data should be retrieved from databse
+        $id = 1; 
         $token = bin2hex(random_bytes(16));
         echo $token . "<br>";
         $secretKey = $token . "|" . $id;
@@ -62,9 +63,11 @@ $mail = new PHPMailer(true);
 //         //Content
 //         $mail->isHTML(true);                   
 //         $mail->Subject = 'Confirmation of your registration at Wasselni';
-//         $mail->Body    = '<body style="background-color: #F7B32B; width: 88%; color: black; border-radius: 10px ; height: 100vh; padding: 20px;"><div style="font-family: Arial, Helvetica, sans-serif ; font-size: 25px; text-align: center; line-height: 80px;"><span style=" font-size:30px;  color: #fff;  font-weight: 800;">W</span>asselni</div>
-//         <p>Dear ' . $firstname . ',</p><br><p>To complete your registration, please click the button below,<br><br><br><br>
-//         <a href=' . $confirmationLink . '><button style="background-color: #60222D; padding: 8px 15px; border-radius: 5px; border: none; color: #fff;font-size: 12px;">Continue</button></a><br><br><p>Drive safe!</p><p style="margin-top: 1px;">Wasselni Team.</p></body>';
+        // $mail->Body    = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+        // <style>html {background-color: #fff;}body {font-family: Arial, Helvetica, sans-serif;margin-top: 10px;background-color: #F7B32B; 
+        // max-width: 500px;width: 88%; color: black; border-radius: 10px ; height: 50vh; padding: 20px;margin: auto;}div {font-family: Arial, Helvetica, sans-serif; font-size: 25px; color: #fff;text-align: center; line-height: 80px;}span {color: black;font-size:30px;  font-weight: 800;}
+        // p {font-size: 18px;}button {background-color: #60222D; padding: 9px 17px; border-radius: 5px; border: none; color: #fff;font-size: 12px;}
+        // </style></head><body><div><span>W</span>asselni</div><p>Dear " . $firstname . ",</p><br><p>To complete your registration, please click the button below,<br><br><br><br><a href=" . $confirmationLink . "><button>Continue</button></a><br><br><p>Drive safe!</p><p style="margin-top: -15px;">Wasselni Team.</p></body></html>';
     
     
 //         $mail->send();

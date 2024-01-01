@@ -69,13 +69,13 @@ if ($receivedHmac === $inspectedHmac) {
 <?php 
 
     if(isset($_POST["password"])) {
-
+      require_once("../database/connect.php");
         $password = $_POST["password"];
         // echo $password;
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         // echo "hashed password: " . $hashedPassword;
 
-        require_once("../database/connect.php");
+
         $stmt =  $conn->prepare("UPDATE drivers SET password = ? WHERE id = ?");
         $stmt->execute([$hashedPassword, $r_id]);
         // echo "submitted";
