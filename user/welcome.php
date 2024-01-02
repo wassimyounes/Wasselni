@@ -87,10 +87,9 @@ if(!isset($_SESSION["name"])) {
                 <p id="distance"></p>
                 <p id="time"></p>
                 <p id="fare"></p>
-
             </div>
-
             <div id="map"></div>
+            <button id="order-btn" class="order-btn">Order Ride</button>
         </div>
     </main>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -98,6 +97,7 @@ if(!isset($_SESSION["name"])) {
     <script src="../maps-and-geocodes/geocodes.js"></script>
     <script src="../maps-and-geocodes/map.js"></script>
     <script src="../script.js"></script>
+    <script src="order-trip.js"></script>
 </body>
 
 </html>

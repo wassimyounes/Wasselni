@@ -1,3 +1,4 @@
+
 function callMap() {
 
     // Set up the map
@@ -18,7 +19,7 @@ var endPoint = L.latLng(coordTo.latitude, coordTo.longitude);
 // Customize the icon options for start and end markers
 var startIcon = L.icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-    iconSize: [18, 27], // Adjust the size as needed
+    iconSize: [18, 27],
     iconAnchor: [10, 25],
     popupAnchor: [1,-34],
     shadowSize: [41, 41]
@@ -26,13 +27,13 @@ var startIcon = L.icon({
 
 var endIcon = L.icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-    iconSize: [18, 27], // Adjust the size as needed
+    iconSize: [18, 27], 
     iconAnchor: [10, 28],
     popupAnchor: [1,-34],
     shadowSize: [41, 41]
 });
 
-// Create a routing control with customized icons
+
 
 L.Routing.control({
     

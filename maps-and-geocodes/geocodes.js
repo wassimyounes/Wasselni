@@ -1,3 +1,4 @@
+
 // to get current location
 document.getElementById("my-location").addEventListener("click", () => {
   getCurrent()
@@ -33,13 +34,12 @@ function getCurrent() {
 
 
 
-/////////////////
+// to fetch pick up 
 
 const fetchLocation = async (coordinates) => {
   const resultInput = document.getElementById('pickup-location');
 
   let coords = coordinates.split(',').map(coord => parseFloat(coord.trim()));
-  console.log("three " + coords[1])
 
   if (!isNaN(coords[0]) && !isNaN(coords[1])) {
     const location = await getPlaceName(coords[0], coords[1]);
@@ -85,6 +85,8 @@ function showInfo() {
     const locator = document.getElementById("trip-info");
     locator.style.visibility = "hidden";
     locator.style.transition ="all .2s"
+    location.reload();
+ 
   };
   const downArrow = document.querySelector(".down-arrow");
   downArrow.addEventListener("click", () => {
@@ -159,7 +161,7 @@ function showInfo() {
 // }
         
         // measurong distance - trip info
-        function measureDistance() {
+         function measureDistance() {
             console.log("clicked")
             const location1 = document.getElementById('pickup-location').value.trim();
             const location2 = document.getElementById('drop-location').value.trim();

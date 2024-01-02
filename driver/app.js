@@ -7,6 +7,7 @@ const vehicleType = document.getElementById("vehicle-type");
 const vehicleMake = document.getElementById("vehicle-make");
 const vehicleYear = document.getElementById("vehicle-year");
 const vehicleLicense = document.getElementById("vehicle-license");
+
 function submitForm() {
 
    if (fname.value == "" || lname.value == "" || emailAddress.value == "" || phoneNum.value == "" || vehicleType.value == "" || vehicleMake.value == "" || vehicleYear.value == "" || vehicleLicense.value == "") {

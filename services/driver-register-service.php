@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bindParam(':email', $email);
             $stmt->execute();
             
-            if ($stmt->rowCount() > 0) {
+            if ($stmt->rowCount() > 0) {    
                 // echo $email . " already exists ";
                 header('Content-Type: application/json');
                 echo json_encode([$email . " already exists."]);
