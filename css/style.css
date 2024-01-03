@@ -509,23 +509,30 @@ main a {
 }
 
 .order-btn {
-    background-color:#4D78AB;
+    text-align: center;
     z-index: 100000;
-    color: #fff;
+    line-height: 35px;
     position: absolute;
     bottom: 40px;
     font-size: 13px;
-    width: 120px;
     border: none;
     box-shadow: 0px 0px 10px 0px rgba(51, 143, 218, 0.75);
-    border-radius: 15px;
-    height: 35px;
+    border-radius: 5px;
     font-weight: 600;
     cursor: pointer;
 }
 
 
-
+#order-btn {
+    border-radius: 5px;
+    color: #fff;
+    height: 35px;
+    width: 120px;
+    font-size: 13px;
+    width: 120px;
+    border: none;
+    background-color:#4D78AB;
+}
 
 
 
@@ -621,40 +628,65 @@ main a {
 
 /* ---------------- service page---------------------- */
 
-.from-to {
-    margin-top: -100px;
-    width: 100%;
-    height: fit-content;
+.trip-header {
     display: flex;
+    /* border: 1px solid; */
+    width: 90%;
+    margin-left: 0;
+    padding: 10px 0;
     align-items: center;
+    color: #012c44;
     justify-content: space-between;
+}
+.trip-information {
+    text-align: center;
+    font-size: 20px;
+
 
 }
 
-.from-inpt, .to-inpt {
-    width: 45%;
-    background-color: inherit;
-    border-bottom: 1px solid #fff;
-    background-color: #85C7F2;
-    border-radius: 0;
+#status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: 90px;
+    text-align: center;
 }
 
-.swap-icon {
-    width: 30px;
-    background-color: #011627;
-    padding: 5px;
-    border-radius: 50%;
+.points {
+    display: flex;
+    width: 400px;
+    align-items: center;
 }
+
+.points p:nth-child(1) {
+    background-color: #4D78AB;
+    width: 100px;
+    color: #012c44;
+    padding: 8px 0 8px 5px;
+    font-weight: 600;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+.points p:nth-child(2) {
+    background-color: #4d77ab30;
+    width: 500px;
+    color: #012c44;
+    padding: 8px 5px ;
+    overflow: hidden;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+
+
 
 main .booking-section {
-    border:0.2px solid gray;
-    border-radius: 5px;
     width: 100%;
     display: flex;
     flex-direction: column;
     height: 60vh;
     margin-bottom: 0;
-    margin-top: -140px;
+    margin-top: -170px;
     overflow: scroll;
 
 }
@@ -662,62 +694,7 @@ main .booking-section {
     display: none;
 }
 
-main .booking-section .offer {
-    background-color: #ffffffa7;
-    width: 95%;
-    margin: 5px auto;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    box-shadow: 2px 3px 2px #ffffff52;
-    cursor: pointer;
-}
 
-main .booking-section .offer .available {
-    margin: 10px auto;
-    width: 95%;
-    min-height: 70px;
-    font-size: 18px;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    align-items: center;
-}
-
-.available div {
-    width: 100px;
-}
-
-.available button {
-    background-color: #a8b0b6ab;
-    width: 60px;
-    height: 30px;
-    border-radius: 10%;
-    border: none;
-    margin-top: -1px;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 95%;
-    margin: 0 auto;
-    height: 50px;
-}
-
-.info > div {
-    display: flex;
-    align-items: center;
-
-}
-
-.info img {
-    width: 30px;
-    margin-right: 10px;
-}
 
 /* ------------------------- manage user account ------------------- */
 

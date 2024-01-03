@@ -169,6 +169,8 @@ function showInfo() {
                 document.getElementById("alert-input").innerHTML = "Please enter locations";      
                 return;
             } else {
+                localStorage.setItem("from", JSON.stringify(location1));
+                localStorage.setItem("to", JSON.stringify(location2));
                 showInfo(); 
                 document.getElementById("alert-input").innerHTML = "";            
             }

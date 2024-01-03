@@ -129,3 +129,32 @@ const tabs = document.querySelectorAll('.nav-bar ul li').forEach((e) => {
     e.classList.add('active');
   })
 })
+
+// status color
+
+const rideStatus = document.getElementById("status");
+if (rideStatus.innerHTML === "accepted")  {
+  rideStatus.style.backgroundColor = "green";
+  rideStatus.style.color = "white";}
+  else if (rideStatus.innerHTML === "started") {
+    rideStatus.style.backgroundColor = "gray";
+    rideStatus.style.color = "white";
+  } 
+  else if (rideStatus.innerHTML === "ended") {
+    rideStatus.style.backgroundColor = "red";
+    rideStatus.style.color = "white";
+  } else {
+    rideStatus.style.backgroundColor = "rgba(189, 226, 117, 0.631)";
+    rideStatus.style.color = "black";
+  }
+
+const fromLoc = JSON.parse(localStorage.getItem("from"))
+const toLoc = JSON.parse(localStorage.getItem("to"))
+console.log(fromLoc)
+document.getElementById("fromLoc").innerHTML = fromLoc;
+document.getElementById("toLoc").innerHTML = toLoc;
+  
+
+
+
+

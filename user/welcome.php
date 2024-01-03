@@ -89,7 +89,10 @@ if(!isset($_SESSION["name"])) {
                 <p id="fare"></p>
             </div>
             <div id="map"></div>
-            <button id="order-btn" class="order-btn">Order Ride</button>
+            <div class="order-btn">
+            <a href="service.php"><button id="order-btn" >Request Ride</button></a>
+            </div>
+
         </div>
     </main>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
