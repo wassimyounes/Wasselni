@@ -48,14 +48,14 @@ function hideNotification() {
 document.addEventListener("DOMContentLoaded", () => {
   let btn = document.getElementById("btn-status");
   btn.addEventListener("click", () => {
-    if (btn.className === "btn-status-available") {
-      btn.className = "btn-status-unavailable";
-      btn.innerHTML = "unavailable";
+    if (btn.className === "btn-status-unavailable") {
+      btn.className = "btn-status-available";
+      btn.innerHTML = "Available";
       document.getElementById("driver-portal-sct").style.visibility = "hidden";
       document.querySelector(".unavailable-screen").style.display = "block";
     } else {
-      btn.className = "btn-status-available";
-      btn.innerHTML = "available";
+      btn.className = "btn-status-unavailable";
+      btn.innerHTML = "Busy";
       document.getElementById("driver-portal-sct").style.visibility = "visible";
       document.querySelector(".unavailable-screen").style.display = "none";
     }

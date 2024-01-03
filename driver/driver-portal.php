@@ -1,9 +1,13 @@
 <?php
 session_start();
+if(isset($_SESSION["driver_id"]) && isset($_SESSION["driver_name"]));
+require_once("../database/connect.php");
+$status = "pending";    
+$stmt = $conn->prepare("SELECT rides.id, rides.start_location, rides.end_location, rides.status, users.name, users.phonenumber FROM rides JOIN users ON users.id = rides.user_id WHERE status = :status");
+$stmt->bindParam(":status", $status);
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// echo $_SESSION["driver_id"] . "<br>";
-// echo $_SESSION["driver_name"]  . "<br>";
-// echo $_SESSION["driver_email"]  . "<br>";
 ?>
 
 <!DOCTYPE html>
@@ -36,87 +40,33 @@ session_start();
 
         </div>
         <section id="driver-portal-sct" class="driver-portal-sct">
-            <details class="request-card">
-                <summary>
-                    <p><span>[someone]</span> needs a ride to<span>[Location]</span></p>
-                </summary>
-                <p>From<span> [Somewhere]</span></p>
+            <?php
+            foreach($result as $row) {
+                $rideId = $row["id"];
+                echo '<details><summary>';
+                echo ' <p><span>';
+                echo $row["name"] . "</span> needs a ride to<span> ";
+                echo $row["phonenumber"] . "<i class='expand fa-solid fa-circle-info'></i></span></p><br><span class='start-l' id='startL'>";
+                echo $row["start_location"] . "</span><br><span class='end-l' id='endL'>";
+                echo $row["end_location"] . "</span><br><span class='ride-id' id='ride-id'>";
+                echo $rideId . "</span></summary>";
+                
+                echo ' <p>From<span> [Somewhere]</span></p>
                 <p>To <span> [Somehwere]</span></p>
-                <button class="accept">Accept</button>
+                <button class="accept" id="accept">Accept</button>
                 <button class="ignore-btn">Ignore</button>
-                <button class="seeonmap-btn">See on map</button>
-            </details>
-            <details class="request-card">
-                <summary>
-                    <p><span>[someone]</span> needs a ride to<span>[Location]</span></p>
-                </summary>
-                <p>From<span> [Somewhere]</span></p>
-                <p>To <span> [Somehwere]</span></p>
-                <button class="accept">Accept</button>
-                <button class="ignore-btn">Ignore</button>
-                <button class="seeonmap-btn">See on map</button>
-            </details>
-            <details class="request-card">
-                <summary>
-                    <p><span>[someone]</span> needs a ride to<span>[Location]</span></p>
-                </summary>
-                <p>From<span> [Somewhere]</span></p>
-                <p>To <span> [Somehwere]</span></p>
-                <button class="accept">Accept</button>
-                <button class="ignore-btn">Ignore</button>
-                <button class="seeonmap-btn">See on map</button>
-            </details>
-            <details class="request-card">
-                <summary>
-                    <p><span>[someone]</span> needs a ride to<span>[Location]</span></p>
-                </summary>
-                <p>From<span> [Somewhere]</span></p>
-                <p>To <span> [Somehwere]</span></p>
-                <button class="accept">Accept</button>
-                <button class="ignore-btn">Ignore</button>
-                <button class="seeonmap-btn">See on map</button>
-            </details>
-            <details class="request-card">
-                <summary>
-                    <p><span>[someone]</span> needs a ride to<span>[Location]</span></p>
-                </summary>
-                <p>From<span> [Somewhere]</span></p>
-                <p>To <span> [Somehwere]</span></p>
-                <button class="accept">Accept</button>
-                <button class="ignore-btn">Ignore</button>
-                <button class="seeonmap-btn">See on map</button>
-            </details>
-            <details class="request-card">
-                <summary>
-                    <p><span>[someone]</span> needs a ride to<span>[Location]</span></p>
-                </summary>
-                <p>From<span> [Somewhere]</span></p>
-                <p>To <span> [Somehwere]</span></p>
-                <button class="accept">Accept</button>
-                <button class="ignore-btn">Ignore</button>
-                <button class="seeonmap-btn">See on map</button>
-            </details>
-            <details class="request-card">
-                <summary>
-                    <p><span>[someone]</span> needs a ride to<span>[Location]</span></p>
-                </summary>
-                <p>From<span> [Somewhere]</span></p>
-                <p>To <span> [Somehwere]</span></p>
-                <button class="accept">Accept</button>
-                <button class="ignore-btn">Ignore</button>
-                <button class="seeonmap-btn">See on map</button>
-            </details>
-
-
+                <button class="seeonmap-btn">See on map</button></details>';
+            }
+            ?>
         </section>
         <div class="status">
-            <p>Status</p>
-            <button class="btn-status-available" id="btn-status">Available</button>
+            <button class="btn-status-unavailable" id="btn-status">Busy</button>
         </div>
         </div>
     </main>
 
     <script src="../script.js"></script>
+    <script src="portal.js"></script>
 </body>
 
 </html>

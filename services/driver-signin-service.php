@@ -19,7 +19,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if($user && password_verify($password , $user["password"])) {
-
             $_SESSION["driver_id"] = $user["id"];
             $_SESSION["driver_name"] = $user["firstname"];
             $_SESSION["driver_email"] = $user["email"];

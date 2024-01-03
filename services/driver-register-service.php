@@ -1,6 +1,5 @@
 <?php 
 
-
 require_once("../database/connect.php");
 if($_SERVER["REQUEST_METHOD"] === "POST") {
     $firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
@@ -59,9 +58,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     
                 $conn->commit();
             }
-  
-
-
         }catch(PDOException $e){
             $conn->rollBack();
             echo json_encode(["error" => "error inserting data" . $e->getMessage()]);
