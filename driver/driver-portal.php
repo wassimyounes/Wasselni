@@ -16,6 +16,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wasselni | driver portal</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
     <script src="https://kit.fontawesome.com/d7d12ce728.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/driver.css">
 </head>
@@ -43,28 +45,41 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php
             foreach($result as $row) {
                 $rideId = $row["id"];
-                echo '<details><summary>';
+                echo '<details class="info-cards"><summary>';
                 echo ' <p><span>';
-                echo $row["name"] . "</span> needs a ride to<span> ";
-                echo $row["phonenumber"] . "<i class='expand fa-solid fa-circle-info'></i></span></p><br><span class='start-l' id='startL'>";
+                echo "Ride Request from <span style='font-size: 20px; color: blue;'> ";
+                echo $row["name"] . "<i class='expand fa-solid fa-circle-info'></i></span></p><br><span class='start-l' id='startL'>";
                 echo $row["start_location"] . "</span><br><span class='end-l' id='endL'>";
                 echo $row["end_location"] . "</span><br><span class='ride-id' id='ride-id'>";
                 echo $rideId . "</span></summary>";
-                
-                echo ' <p>From<span> [Somewhere]</span></p>
-                <p>To <span> [Somehwere]</span></p>
-                <button class="accept" id="accept">Accept</button>
-                <button class="ignore-btn">Ignore</button>
-                <button class="seeonmap-btn">See on map</button></details>';
+                echo ' <p>Pickup: <span style="font-size:16px;color:blue" class="from-loc"></span></p>
+                       <p>Drop: <span style="font-size:16px;color:blue" class="to-loc"></span></p>
+                       <p>Estimated distance: <span style="font-size:16px;color:blue" class="distance"></span></p>
+                       <p>Estimated Time: <span style="font-size:16px;color:blue" class="time"></span></p>
+                       <br>
+                       <button class="accept" id="accept">Accept</button>
+                       <button class="ignore-btn">Ignore</button>
+                       <button class="seeonmap-btn">See on map</button></details>';
             }
             ?>
         </section>
-        <div class="status">
-            <button class="btn-status-unavailable" id="btn-status">Busy</button>
-        </div>
-        </div>
-    </main>
 
+
+
+                <!-- trip info -->
+            <div  id="trip-info" class="trip-info-driv">
+            <div class="down-arrow" id="down-arrow"alt=""><i class="fa-solid fa-x"></i></div>
+
+            </br>
+              
+            <div id="map"></div>
+        </div>
+
+    </main>
+    <script src="../maps-and-geocodes/geocodes-driver.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="../maps-and-geocodes/map-driver.js"></script>
     <script src="../script.js"></script>
     <script src="portal.js"></script>
 </body>

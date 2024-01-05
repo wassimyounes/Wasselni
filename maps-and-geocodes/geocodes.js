@@ -2,33 +2,33 @@
 // to get current location
 document.getElementById("my-location").addEventListener("click", () => {
   getCurrent()
-  .then((coordinates) => {
-    console.log("two " + coordinates)
-    fetchLocation(coordinates);
-  })
-  .catch((error) => {
-    console.error(error.message)
-  })
+    .then((coordinates) => {
+      console.log("two " + coordinates)
+      fetchLocation(coordinates);
+    })
+    .catch((error) => {
+      console.error(error.message)
+    })
 })
 
 function getCurrent() {
-      return new Promise((resolve, reject) => {
-        if("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition((position) => {
-            const coordinates = position.coords.latitude + ", " + position.coords.longitude;
-          
-            resolve(coordinates);
-            console.log("one " + coordinates)
-          },
-          (error) => {
-            reject(error);
-          }
-          );
-        } else {
-          reject(new Error("Geolocation is not supported"));
+  return new Promise((resolve, reject) => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const coordinates = position.coords.latitude + ", " + position.coords.longitude;
+
+        resolve(coordinates);
+        console.log("one " + coordinates)
+      },
+        (error) => {
+          reject(error);
         }
-      })
+      );
+    } else {
+      reject(new Error("Geolocation is not supported"));
     }
+  })
+}
 
 
 
@@ -72,33 +72,33 @@ const getPlaceName = async (latitude, longitude) => {
 
 //  to show location and trip information
 function showInfo() {
-    setTimeout(() =>{
-        const locator = document.getElementById("trip-info");
-        locator.style.visibility = "visible";
-      }, 200)
+  setTimeout(() => {
+    const locator = document.getElementById("trip-info");
+    locator.style.visibility = "visible";
+  }, 200)
 }
 
- 
 
-    // to hide location and trip information
-  const hideWindow = function () {
-    const locator = document.getElementById("trip-info");
-    locator.style.visibility = "hidden";
-    locator.style.transition ="all .2s"
-    location.reload();
- 
-  };
-  const downArrow = document.querySelector(".down-arrow");
-  downArrow.addEventListener("click", () => {
-    hideWindow();
-  });
 
-  // trip info and distance details appearance 
-  const tripDTF = document.getElementById("trip-dtf"); // distance, time, fare
-  document.getElementById("trip-icon").addEventListener("click", ()=> {
-    console.log("clicked")
-    tripDTF.classList.toggle("trip-dtf-hidden");
-  })
+// to hide location and trip information
+const hideWindow = function () {
+  const locator = document.getElementById("trip-info");
+  locator.style.visibility = "hidden";
+  locator.style.transition = "all .2s"
+  location.reload();
+
+};
+const downArrow = document.querySelector(".down-arrow");
+downArrow.addEventListener("click", () => {
+  hideWindow();
+});
+
+// trip info and distance details appearance 
+const tripDTF = document.getElementById("trip-dtf"); // distance, time, fare
+document.getElementById("trip-icon").addEventListener("click", () => {
+  console.log("clicked")
+  tripDTF.classList.toggle("trip-dtf-hidden");
+})
 
 // points suggestions for from-input 
 
@@ -159,84 +159,84 @@ function showInfo() {
 //         suggestionsDiv.appendChild(suggestionItem);
 //     });
 // }
-        
-        // measurong distance - trip info
-         function measureDistance() {
-            console.log("clicked")
-            const location1 = document.getElementById('pickup-location').value.trim();
-            const location2 = document.getElementById('drop-location').value.trim();
-            if (location1 === '' || location2 === '') {
-                document.getElementById("alert-input").innerHTML = "Please enter locations";      
-                return;
-            } else {
-                localStorage.setItem("from", JSON.stringify(location1));
-                localStorage.setItem("to", JSON.stringify(location2));
-                showInfo(); 
-                document.getElementById("alert-input").innerHTML = "";            
-            }
 
-            // Fetch coordinates for the entered locations
-            const coordinates1 = getCoordinates(location1);
-            const coordinates2 = getCoordinates(location2);
+// measurong distance - trip info
+function measureDistance() {
+  console.log("clicked")
+  const location1 = document.getElementById('pickup-location').value.trim();
+  const location2 = document.getElementById('drop-location').value.trim();
+  if (location1 === '' || location2 === '') {
+    document.getElementById("alert-input").innerHTML = "Please enter locations";
+    return;
+  } else {
+    localStorage.setItem("from", JSON.stringify(location1));
+    localStorage.setItem("to", JSON.stringify(location2));
+    showInfo();
+    document.getElementById("alert-input").innerHTML = "";
+  }
 
-            Promise.all([coordinates1, coordinates2])
-                .then(([coord1, coord2]) => {
-                    document.getElementById("fCoords").innerHTML = "Coords for " +  location1 + ": " + coord1.latitude + ", " + coord1.longitude;
-                    document.getElementById("tCoords").innerHTML = "Coords for " +  location2 + ": " + coord2.latitude + ", " + coord2.longitude;
-                    const distance = calculateDistance(coord1, coord2) + 5 ;
+  // Fetch coordinates for the entered locations
+  const coordinates1 = getCoordinates(location1);
+  const coordinates2 = getCoordinates(location2);
 
-                    // Display the results
-                    document.getElementById('distance').innerHTML = `Distance to travel: ${distance.toFixed(2)} km`;
-                    if(distance / 80 < 1) {
-                        document.getElementById('time').innerHTML = `Estimated travel time: ${(distance / 80 * 60).toFixed(2)} min`;
-                    } else {
-                        document.getElementById('time').innerHTML = `Estimated travel time: ${(distance / 80).toFixed(2)} hrs`;
-                    }
-                    document.getElementById('fare').innerHTML = `Estimated fare: ${(distance *0.1).toFixed(2)} $`;
-                    
-                    localStorage.setItem("fromCoordinates", JSON.stringify(coord1));
-                    localStorage.setItem("toCoordinates", JSON.stringify(coord2));
+  Promise.all([coordinates1, coordinates2])
+    .then(([coord1, coord2]) => {
+      document.getElementById("fCoords").innerHTML = "Coords for " + location1 + ": " + coord1.latitude + ", " + coord1.longitude;
+      document.getElementById("tCoords").innerHTML = "Coords for " + location2 + ": " + coord2.latitude + ", " + coord2.longitude;
+      const distance = calculateDistance(coord1, coord2) + 5;
 
-                })
-                .catch(error => {
-                    console.error('Error fetching coordinates:', error);
-                    alert('Error fetching coordinates. Please try again.');
-                });
-            }
+      // Display the results
+      document.getElementById('distance').innerHTML = `Distance to travel: ${distance.toFixed(2)} km`;
+      if (distance / 80 < 1) {
+        document.getElementById('time').innerHTML = `Estimated travel time: ${(distance / 80 * 60).toFixed(2)} min`;
+      } else {
+        document.getElementById('time').innerHTML = `Estimated travel time: ${(distance / 80).toFixed(2)} hrs`;
+      }
+      document.getElementById('fare').innerHTML = `Estimated fare: ${(distance * 0.1).toFixed(2)} $`;
+
+      localStorage.setItem("fromCoordinates", JSON.stringify(coord1));
+      localStorage.setItem("toCoordinates", JSON.stringify(coord2));
+
+    })
+    .catch(error => {
+      console.error('Error fetching coordinates:', error);
+      alert('Error fetching coordinates. Please try again.');
+    });
+}
 
 
-        async function getCoordinates(location) {
-            const apiUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json`;
+async function getCoordinates(location) {
+  const apiUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json`;
 
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            if (data.length > 0) {
-                const coordinates = {
-                    latitude: parseFloat(data[0].lat),
-                    longitude: parseFloat(data[0].lon)
-                };
-                return coordinates;
-            } else {
-                throw new Error('No results found for the location.');
-            }
-        }
-        // calculate distance
-        function calculateDistance(coord1, coord2) {
-            const R = 6371;
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  if (data.length > 0) {
+    const coordinates = {
+      latitude: parseFloat(data[0].lat),
+      longitude: parseFloat(data[0].lon)
+    };
+    return coordinates;
+  } else {
+    throw new Error('No results found for the location.');
+  }
+}
+// calculate distance
+function calculateDistance(coord1, coord2) {
+  const R = 6371;
 
-            const dLat = deg2rad(coord2.latitude - coord1.latitude);
-            const dLon = deg2rad(coord2.longitude - coord1.longitude);
+  const dLat = deg2rad(coord2.latitude - coord1.latitude);
+  const dLon = deg2rad(coord2.longitude - coord1.longitude);
 
-            const a =
-                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(deg2rad(coord1.latitude)) * Math.cos(deg2rad(coord2.latitude)) *
-                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(deg2rad(coord1.latitude)) * Math.cos(deg2rad(coord2.latitude)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-            return R * c;
-        }
+  return R * c;
+}
 
-        function deg2rad(deg) {
-            return deg * (Math.PI / 180);
-        }
+function deg2rad(deg) {
+  return deg * (Math.PI / 180);
+}

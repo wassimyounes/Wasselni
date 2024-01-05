@@ -1,13 +1,13 @@
-const acceptBtn = document.getElementById("accept");
+const acceptBtns = document.querySelectorAll("#accept");
 
 
 
 
 
 
-function acceptRide() {
+function acceptRide(rideId) {
 
-    const rideId = document.getElementById("ride-id").innerHTML;
+    // const rideId = document.getElementById("ride-id").innerHTML;
     fetch("../services/accept-ride.php", {
         method: "POST",
         Headers: {
@@ -22,10 +22,14 @@ function acceptRide() {
     .catch(error => console.error("Error;", error))
     }
 
-acceptBtn.addEventListener("click", () => {
-    acceptRide();
-    window.location.href = "driver-portal-accepted.php";
-})
+acceptBtns.forEach((acceptedBtn) => {
+    acceptedBtn.addEventListener("click", () => {
+    const rideId = acceptedBtn.parentElement.childNodes[0].childNodes[7].innerHTML;
+        acceptRide(rideId);
+        window.location.href = "driver-portal-accepted.php";
+    })
+})    
+
 
 
 

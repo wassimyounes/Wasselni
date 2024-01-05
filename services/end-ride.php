@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $id = $rideId["rideId"];
     $_SESSION["ride-id"] = $id;
     $status = "ended";
-    $stmt = $conn->prepare("UPDATE rides SET status= :status WHERE id= :id");
+    $stmt = $conn->prepare("UPDATE rides SET ended_at= NOW(), status= :status WHERE id= :id");
     $stmt->bindParam(":id", $id);
     $stmt->bindParam(":status", $status);
     $stmt->execute();

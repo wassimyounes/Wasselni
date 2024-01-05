@@ -318,22 +318,6 @@ label {
     margin-right: 10px;
 }
 
- .btn-status-available{
-    width:150px;
-    height: 40px;
-    color: #fff;
-    background-color: green;
-    border-radius: 25px;
-    border: none;
- }
- .btn-status-unavailable{
-    width:150px;
-    height: 40px;
-    color: #fff;
-    background-color:red;
-    border-radius: 25px;
-    border: none;
- }
 
 
 
@@ -374,6 +358,77 @@ label {
     height: 30px;
     border-radius: 15px;
  }
+
+  /* for driver */
+
+  .leaflet-routing-container, .leaflet-bar .leaflet-routing-collapsible, .leaflet-control {
+    overflow-y: hidden;
+    font-size: 12px;
+    height: 200px;
+    position: relative;
+    top: 500px;
+    width: 100%;
+    opacity: 0.8;
+    color: blue;
+    right: 5px;
+    border: none;
+    ::-webkit-scrollbar {
+    display: none;
+}
+}
+
+.leaflet-control-zoom {
+    height: 60px;
+    scale: 0.6;
+    position: relative;
+    top: 0;
+    opacity: 0.5;
+}
+
+.leaflet-control-attribution{
+    display: none;
+}
+#map {
+    width: 90%;
+    height: 80vh;
+}
+
+.trip-info-driv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    background-color: #bcdbea;
+    width: 95%;
+    height: 80vh;
+    background-color: #F7B32B;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    border-radius: 5px;
+    visibility: hidden;
+    animation: upward 0.2s ease;
+}
+.down-arrow {
+    position: absolute;
+    cursor: pointer;
+    width: 40px;
+    right: 12px;
+    scale: 1.4;
+    z-index: 1000000;
+    margin-bottom: -40px;
+    height: 40px;
+    transform: rotate(270deg);
+}
+
+#trip-icon {
+    cursor: pointer;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+}
+
 
 
  .seeonmap-btn {

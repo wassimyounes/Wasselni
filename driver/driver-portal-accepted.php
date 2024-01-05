@@ -42,8 +42,8 @@ $rideId = $row["id"];
                 echo '<div class="card"><p>';
                 echo "Passenger's name: " . "<span>" . $row["name"] . "</span></p><p> ";
                 echo "Passenger's phone number: " . "<span>" . $row["phonenumber"] . "</span></p><p>" ;
-                echo "Pick-up: " . "<span>" . $row['start_location'] . "</span></p><p>";
-                echo "Destination: " . "<span>" . $row['end_location'] . "</span></p><p>";
+                echo "Pick-up: " . "<span id='pick-up'></span></p><p>";
+                echo "Destination: " . "<span id='drop'></span></p><p>";
                 echo "Reference: " .  "<span id='ride-id'>" . $rideId . "</span></p>
                 <button class='start' id='start'>Start</button>";
             ?>
@@ -52,6 +52,17 @@ $rideId = $row["id"];
 
     <script src="../script.js"></script>
     <script src="accept.js"></script>
+    <script>
+    window.onload = () => {
+        const pickUp = localStorage.getItem("start");
+        const drop = localStorage.getItem("end");
+        document.getElementById("pick-up").innerHTML = pickUp
+        document.getElementById("drop").innerHTML = drop
+        console.log(pickUp)
+        console.log(drop)
+    }
+
+    </script>
 </body>
 
 </html>
