@@ -26,11 +26,7 @@ function WatchAndUpdateStatus() {
     console.log("watching")
     const rideStatus = document.getElementById("status");   
     if(rideStatus.innerHTML === "ended") {
-        document.querySelector(".booking-section"). innerHTML = "<p class='ended'>Trip has ended, have a nice day!</p>";
-        setTimeout(()=> {
-            window.location.href = "welcome.php"
-        }, 4000)
-
+            window.location.href = "rating.html"
         return;
       }
 

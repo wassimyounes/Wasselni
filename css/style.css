@@ -678,7 +678,8 @@ main a {
 }
 
 .ended {
-    margin-top: 50px;
+    color: #00083e;
+    margin: auto;
     font-size: 22px;
 }
 
@@ -811,6 +812,31 @@ main .booking-section {
     margin:-5px auto auto;
     padding: 5px;
 
+}
+
+.feedbk {
+    color: #00083e;
+    margin: 0 auto 10px;
+    font-size: 18px;
+}
+
+.text-area {
+    padding: 10px;
+    font-size: 16px;
+    width: 70%;
+    margin: auto;
+    height: 150px;
+    font-size: 16px;
+    border: none;
+    color: rgb(21, 14, 14);
+    background-color: #ffffff82;
+    border-radius: 5px;
+}
+
+.after-feedbk {
+    font-size: 20px;
+    color: #00083e;
+    margin: auto;
 }
 
 

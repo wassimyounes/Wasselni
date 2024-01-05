@@ -48,7 +48,7 @@ session_start();
         </div>
         <section class="trip-header">
             <div class="trip-information">Trip information</div>
-            <div id="status"></div>
+            <div id="status">Pending</div>
         </section>
         <section class="booking-section">
             <div class="from-to">

@@ -1,5 +1,4 @@
 
-// this file fetches driver's data from admin's dashboard drivers page 
 
 
 let btn = document.querySelectorAll("button")
@@ -16,7 +15,6 @@ btn.forEach((el) => {
             email, 
             firstName
         } 
-
         fetch("confirm.php", {
             method: "POST",
             headers: {"Content-Type": "application/json"},

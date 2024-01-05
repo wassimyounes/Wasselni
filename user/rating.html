@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Wasselni</title>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html"><div class="logo"><span>W</span>asselni</div></a>
+        <ul>
+    </header>
+    <main id="main">
+        </div>
+
+        
+        <section>
+            <p class="ended" >Your trip has ended</p>
+        </section>
+        <form class="form">
+            <label class="feedbk">Tell us about your experience</label>
+            <textarea class="text-area"></textarea>
+        </form><br>
+        <a ><button class="btn-1" id="btn-1">I am done!</button></a>
+    </main>
+    <script>
+        document.getElementById("btn-1").addEventListener("click", ()=> {
+            document.getElementById("main").innerHTML = "<p class='after-feedbk'>Have a good day!</p>"
+            setTimeout(()=> {
+            window.location.href = "welcome.php"
+        }, 4000)
+        })
+    </script>
+</body>
+
+</html>
