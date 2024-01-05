@@ -85,7 +85,7 @@ const hideWindow = function () {
   const locator = document.getElementById("trip-info");
   locator.style.visibility = "hidden";
   locator.style.transition = "all .2s"
-  location.reload();
+  // location.reload();
 
 };
 const downArrow = document.querySelector(".down-arrow");
@@ -162,7 +162,6 @@ document.getElementById("trip-icon").addEventListener("click", () => {
 
 // measurong distance - trip info
 function measureDistance() {
-  console.log("clicked")
   const location1 = document.getElementById('pickup-location').value.trim();
   const location2 = document.getElementById('drop-location').value.trim();
   if (location1 === '' || location2 === '') {

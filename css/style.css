@@ -641,6 +641,7 @@ main a {
 .trip-information {
     text-align: center;
     font-size: 20px;
+    font-weight: 600;
 
 
 }
@@ -653,31 +654,33 @@ main a {
 }
 
 .points {
-    display: flex;
     width: 400px;
-    align-items: center;
 }
 
 .points p:nth-child(1) {
-    background-color: #4D78AB;
-    width: 100px;
+    min-width: 150px;
     color: #012c44;
-    padding: 8px 0 8px 5px;
-    font-weight: 600;
+    font-size: 18px;
+    padding: 0 0 0 5px;
     margin-right: 10px;
-    border-radius: 3px;
+
 }
 .points p:nth-child(2) {
-    background-color: #4d77ab30;
+    color: #00083e;
     width: 500px;
-    color: #012c44;
-    padding: 8px 5px ;
+    background-color: #012d4423;
+    font-size: 20px;
+    margin-top: -15px;
+    margin-bottom: 30px;
+    padding: 5px 5px ;
     overflow: hidden;
     margin-right: 10px;
-    border-radius: 3px;
 }
 
-
+.ended {
+    margin-top: 50px;
+    font-size: 22px;
+}
 
 
 main .booking-section {

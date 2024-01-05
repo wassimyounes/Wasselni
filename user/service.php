@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
     <title>Wasselni</title>
 </head>
 
-<body>
+<body onload = "initWatch()">
     <div id="side-bar" class="side-bar">
         <img class="close" id="close" src="../images/close.png" alt="">
         <ul>
@@ -43,17 +48,25 @@
         </div>
         <section class="trip-header">
             <div class="trip-information">Trip information</div>
-            <div id="status">pending</div>
+            <div id="status"></div>
         </section>
         <section class="booking-section">
             <div class="from-to">
                 <div class="points">
-                    <p>FROM</p>
+                    <p>Leaving from</p>
                     <p id="fromLoc"></p>
                 </div>
                 <div class="points">
-                    <p>TO</p>
+                    <p>Going to</p>
                     <p id="toLoc"></p>
+                </div>
+                <div class="points driver-info">
+                    <p>Driver's name</p>
+                    <p id="driver-name"> --------</p>
+                </div>
+                <div class="points driver-info">
+                    <p>Driver's phone number</p>
+                    <p id="driver-phone"> --------</p>
                 </div>
             </div>
            
@@ -62,8 +75,8 @@
 
 
     <script src="../script.js"></script>
-    <script>
-    </script>
+    <script src="watch-status.js"></script>
+
 </body>
 
 </html>

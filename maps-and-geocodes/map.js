@@ -1,13 +1,16 @@
 
-function callMap() {
+
 
     // Set up the map
 var map = L.map('map').setView([33.5421, 35.5878], 18)
 
 // Add OpenStreetMap tiles
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-}).addTo(map);
-
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+var routingContol;
+function callMap() {
+    if(routingContol) {
+        map.removeControl(routingContol)
+    }
 // Define your start and end points
 const coordFrom = JSON.parse(localStorage.getItem("fromCoordinates"))
 const coordTo = JSON.parse(localStorage.getItem("toCoordinates"))
@@ -35,7 +38,7 @@ var endIcon = L.icon({
 
 
 
-L.Routing.control({
+routingContol = L.Routing.control({
     
     waypoints: [
         L.latLng(startPoint),
