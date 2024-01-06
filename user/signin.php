@@ -57,8 +57,8 @@ if(isset($_SESSION["name"])) {
             }
 
             ?>
-            <input type="tel" name="phone" class="input-field" placeholder="Phone number" >
-            <input type="text" name="password" class="input-field" placeholder="Password" >
+            <input type="tel" name="phone" class="input-field" placeholder="Phone number" required autocomplete="off">
+            <input type="text" name="password" class="input-field" placeholder="Password" required autocomplete="off">
             <a><button class="btn-1">Submit</button></a>
         </form>
         <a href="forgot-password.html"><button class="btn-1">forgot password?</button></a>

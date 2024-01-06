@@ -68,7 +68,6 @@ const getPlaceName = async (latitude, longitude) => {
 };
 
 
-/////////////
 
 //  to show location and trip information
 function showInfo() {
@@ -76,7 +75,7 @@ function showInfo() {
     const locator = document.getElementById("trip-info");
     locator.style.visibility = "visible";
   }, 200)
-}
+};
 
 
 
@@ -85,80 +84,80 @@ const hideWindow = function () {
   const locator = document.getElementById("trip-info");
   locator.style.visibility = "hidden";
   locator.style.transition = "all .2s"
-  // location.reload();
 
 };
+
 const downArrow = document.querySelector(".down-arrow");
 downArrow.addEventListener("click", () => {
   hideWindow();
 });
 
-// trip info and distance details appearance 
+// trip info and distance details appearance (on map)
 const tripDTF = document.getElementById("trip-dtf"); // distance, time, fare
 document.getElementById("trip-icon").addEventListener("click", () => {
   console.log("clicked")
   tripDTF.classList.toggle("trip-dtf-hidden");
 })
 
-// points suggestions for from-input 
+//-----  points suggestions for from-input ---//
 
-// function getSuggestions1() {
-//     const input1 = document.getElementById('pickup-location').value;
+function getSuggestions1() {
+  const input1 = document.getElementById('pickup-location').value;
 
-//     if (input1.trim() !== '') {
-//         fetch(`https://nominatim.openstreetmap.org/search?q=${input1}&format=json`)
-//             .then(response => response.json())
-//             .then(data => displaySuggestions1(data));
-//     } else {
-//         document.getElementById('suggestions-pickup').innerHTML = '';
-//     }
-// }
-// document.getElementById('pickup-location').addEventListener("input", getSuggestions1)
-// function displaySuggestions1(suggestions) {
-//     let suggestionsDiv = document.getElementById('suggestions-pickup');
+  if (input1.trim() !== '') {
+    fetch(`https://nominatim.openstreetmap.org/search?q=${input1}&format=json`)
+      .then(response => response.json())
+      .then(data => displaySuggestions1(data));
+  } else {
+    document.getElementById('suggestions-pickup').innerHTML = '';
+  }
+}
+document.getElementById('pickup-location').addEventListener("input", getSuggestions1)
+function displaySuggestions1(suggestions) {
+  let suggestionsDiv = document.getElementById('suggestions-pickup');
 
-//     suggestionsDiv.innerHTML = '';
+  suggestionsDiv.innerHTML = '';
 
-//     suggestions.forEach(suggestion => {
-//         let suggestionItem = document.createElement('div');
-//         suggestionItem.textContent = suggestion.display_name;
-//         suggestionItem.addEventListener('click', () => {
-//             document.getElementById('pickup-location').value = suggestion.display_name;
-//             suggestionsDiv.innerHTML = '';
-//         });
-//         suggestionsDiv.appendChild(suggestionItem);
-//     });
-// }
+  suggestions.forEach(suggestion => {
+    let suggestionItem = document.createElement('div');
+    suggestionItem.textContent = suggestion.display_name;
+    suggestionItem.addEventListener('click', () => {
+      document.getElementById('pickup-location').value = suggestion.display_name;
+      suggestionsDiv.innerHTML = '';
+    });
+    suggestionsDiv.appendChild(suggestionItem);
+  });
+}
 
-// // points suggestions for to-input 
+// // --------------points suggestions for to-input----------------// 
 
-// function getSuggestions2() {
-//     const input2 = document.getElementById('drop-location').value;
+function getSuggestions2() {
+  const input2 = document.getElementById('drop-location').value;
 
-//     if (input2.trim() !== '') {
-//         fetch(`https://nominatim.openstreetmap.org/search?q=${input2}&format=json`)
-//             .then(response => response.json())
-//             .then(data => displaySuggestions2(data));
-//     } else {
-//         document.getElementById('suggestions-drop').innerHTML = '';
-//     }
-// }
-// document.getElementById('drop-location').addEventListener("input", getSuggestions2)
-// function displaySuggestions2(suggestions) {
-//     let suggestionsDiv = document.getElementById('suggestions-drop');
+  if (input2.trim() !== '') {
+    fetch(`https://nominatim.openstreetmap.org/search?q=${input2}&format=json`)
+      .then(response => response.json())
+      .then(data => displaySuggestions2(data));
+  } else {
+    document.getElementById('suggestions-drop').innerHTML = '';
+  }
+}
+document.getElementById('drop-location').addEventListener("input", getSuggestions2)
+function displaySuggestions2(suggestions) {
+  let suggestionsDiv = document.getElementById('suggestions-drop');
 
-//     suggestionsDiv.innerHTML = '';
+  suggestionsDiv.innerHTML = '';
 
-//     suggestions.forEach(suggestion => {
-//         let suggestionItem = document.createElement('div');
-//         suggestionItem.textContent = suggestion.display_name;
-//         suggestionItem.addEventListener('click', () => {
-//             document.getElementById('drop-location').value = suggestion.display_name;
-//             suggestionsDiv.innerHTML = '';
-//         });
-//         suggestionsDiv.appendChild(suggestionItem);
-//     });
-// }
+  suggestions.forEach(suggestion => {
+    let suggestionItem = document.createElement('div');
+    suggestionItem.textContent = suggestion.display_name;
+    suggestionItem.addEventListener('click', () => {
+      document.getElementById('drop-location').value = suggestion.display_name;
+      suggestionsDiv.innerHTML = '';
+    });
+    suggestionsDiv.appendChild(suggestionItem);
+  });
+}
 
 // measurong distance - trip info
 function measureDistance() {

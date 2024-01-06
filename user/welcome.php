@@ -95,9 +95,9 @@ if(!isset($_SESSION["name"])) {
 
         </div>
     </main>
+    <script src="../maps-and-geocodes/geocodes.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
-    <script src="../maps-and-geocodes/geocodes.js"></script>
     <script src="../maps-and-geocodes/map.js"></script>
     <script src="../script.js"></script>
     <script src="order-trip.js"></script>

@@ -1,16 +1,15 @@
 <?php 
 
-// require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . "/../vendor/autoload.php";
 
-// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/..");
-// $dotenv->load();
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/..");
+$dotenv->load();
 
-// use Infobip\Configuration;
-// use Infobip\Api\SmsApi;
-// use Infobip\Model\SmsDestination;
-// use Infobip\Model\SmsTextualMessage;
-// use Infobip\Model\SmsAdvancedTextualRequest;
-// use Twilio\Rest\Client;
+use Infobip\Configuration;
+use Infobip\Api\SmsApi;
+use Infobip\Model\SmsDestination;
+use Infobip\Model\SmsTextualMessage;
+use Infobip\Model\SmsAdvancedTextualRequest;
 
 session_start();
 
@@ -27,38 +26,37 @@ if(isset($_POST['name']) && isset($_POST['phone'])) {
 
 
     # sending verification code to the user's phone number 
-    // $base_url = $_ENV["INFOBIP_API_BASE_URL"];
-    // $api_key = $_ENV["INFOBIP_API_KEY"];
+    $base_url = $_ENV["INFOBIP_API_BASE_URL"];
+    $api_key = $_ENV["INFOBIP_API_KEY"];
 
-    // echo $base_url . "<br>";
-    // echo $api_key . "<br>";
+    echo $base_url . "<br>";
+    echo $api_key . "<br>";
 
 
-    // $verification_code = rand(1000, 9999);
-    $verification_code = "1234";
+    $verification_code = rand(1000, 9999);
     echo $verification_code . "<br>";
     $_SESSION["ver-code"] = $verification_code;
 
-    // $message = "Hello " . $firstname . ", Your verification code is: " . $verification_code . ". Happy trips!";
-    // echo $message . "<br>";
+    $message = "Hello " . $firstname . ", Your verification code is: " . $verification_code . ". Happy trips!";
+    echo $message . "<br>";
 
 
 
-    // $configuration = new Configuration(host: $base_url, apiKey: $api_key);
+    $configuration = new Configuration(host: $base_url, apiKey: $api_key);
 
-    // $api = new SmsApi(config: $configuration);
+    $api = new SmsApi(config: $configuration);
 
-    // $destination = new SmsDestination(to: "961" . $phonenumber);
+    $destination = new SmsDestination(to: "961" . $phonenumber);
 
-    // $message = new SmsTextualMessage(
-    //     destinations: [$destination],
-    //     text: $message,
-    //     from: "Wassleni"
-    // );
+    $message = new SmsTextualMessage(
+        destinations: [$destination],
+        text: $message,
+        from: "Wassleni"
+    );
 
-    // $request = new SmsAdvancedTextualRequest(messages: [$message]);
+    $request = new SmsAdvancedTextualRequest(messages: [$message]);
 
-    // $response = $api->sendSmsMessage($request);
+    $response = $api->sendSmsMessage($request);
     echo "message sent";
     $_SESSION["from_server"] = true;
     header("location: ../user/code.php");
@@ -151,7 +149,4 @@ if(isset($_POST['received-verification-code'])) {
         }
         $conn = null;
     }
-
-
-
 ?>

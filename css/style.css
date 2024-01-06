@@ -409,7 +409,9 @@ main a {
 
 
 #suggestions-pickup {
-    margin-top: -7px;
+    cursor: pointer;
+    max-height: 400px;
+    margin-top: -6px;
     overflow-y: scroll;
     width: 280px;
     left: 50%;
@@ -421,15 +423,20 @@ main a {
 }
 
 #suggestions-pickup div {
-    min-height: 50px;
-    border-top: 1px solid #4d77abb5;
     border-bottom: 1px solid #4d77abb5;
-    background-color: #cdd5df;
+    background-color: #5399bee7;
+    border-radius: 5px;
+    color: #2e3239;
     padding: 8px;
+}
+#suggestions-pickup div:hover {
+    color: black;
 }
 
 #suggestions-drop {
-    margin-top: -7px;
+    cursor: pointer;
+    max-height: 400px;
+    margin-top: 65px;
     overflow-y: scroll;
     width: 280px;
     left: 50%;
@@ -441,12 +448,16 @@ main a {
 }
 
 #suggestions-drop div {
-    min-height: 50px;
-    border-top: 1px solid #4d77abb5;
     border-bottom: 1px solid #4d77abb5;
-    background-color: #cdd5df;
+    background-color: #5399bee7;
+    border-radius: 5px;
+    color: #2e3239;
     padding: 8px;
 }
+#suggestions-drop div:hover {
+    color: black;
+}
+
 
 #alert-input {
     margin: auto;
@@ -485,6 +496,7 @@ main a {
     background-color: #5399bec9;
     width: 90%;
     overflow: hidden;
+    color: blue;
 }
 .trip-dtf-hidden {
     height: 0;

@@ -50,8 +50,8 @@ unset($_SESSION["from_server"])
         </section>
         <form class="form" action="../services/user-signup-service.php" method="post">
             <p id="code-alert" ></p>
-            <input type="text" class="input-field" id="password" name="password" placeholder="Password" required >
-            <input type="text" class="input-field" id="confirmPassword" placeholder="Confirm password" required >
+            <input type="text" class="input-field" id="password" name="password" placeholder="Password" required autocomplete="off">
+            <input type="text" class="input-field" id="confirmPassword" placeholder="Confirm password" required autocomplete="off">
             <button id="set-pass-btn" class="btn-1">Sign up</button>
         </form>
 
