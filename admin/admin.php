@@ -12,7 +12,7 @@
 <body>
 	<header>
 		<div><span><i id= "dashes" class="fa-solid fa-bars"></i></span>Admin</div>
-		<div>log in</div>
+		<div>log out</div>
 	</header>
 	<main>
 	<aside>

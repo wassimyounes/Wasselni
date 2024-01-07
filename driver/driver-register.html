@@ -31,16 +31,16 @@
                 <form id="reg-form-driver" class="registarion-form">
                     <p>personal information</p style="font-size: 12px; text-align: center;">
                     <label for="firstname">First name *</label>
-                    <input name="firstname" type="text" id="first-name" placeholder="first name" required>
+                    <input name="firstname" type="text" id="first-name" placeholder="first name" required autocomplete = off>
                     <label for="firstname">Last name *</label>
-                    <input name="lastname" type="text" id="last-name" placeholder="Last name" required>
+                    <input name="lastname" type="text" id="last-name" placeholder="Last name" required autocomplete = off>
                     <label for="email-address">E-mail address *</label>
-                    <input name="email" type="email" id="email-address" placeholder="Email address" required>
+                    <input name="email" type="email" id="email-address" placeholder="Email address" required autocomplete = off>
                     <label for="phone-number">Phone number *</label>
-                    <input name="phone" type="tel" id="phone-number" placeholder="Phone number" required>
+                    <input name="phone" type="tel" id="phone-number" placeholder="Phone number" required autocomplete = off>
                     <p>Vehicle information</p>
                     <label for="vehicle-type">Vehicle type *</label>
-                    <select name="vehicletype" type="text" id="vehicle-type" placeholder="Vehicle type" required>
+                    <select name="vehicletype" type="text" id="vehicle-type" placeholder="Vehicle type" required autocomplete = off>
                         <option  value="" disabled selected >Choose one</option>
                         <option value="Sedan">Sedan</option>
                         <option value="hatchback">Hatchback</option>
@@ -48,7 +48,7 @@
                         <option value="motorcycle">Motorcycle</option>
                     </select>
                     <label for="vehicle-make">Vehicle make *</label>
-                    <select name="vehiclemake" type="text" id="vehicle-make" placeholder="Vehicle make" required>
+                    <select name="vehiclemake" type="text" id="vehicle-make" placeholder="Vehicle make" required autocomplete = off>
                         <option value="" disabled selected>Choose one</option>
                         <option value="alfa Romio">Alfa Romio</option>
                         <option value="bmw">BMW</option>
@@ -61,7 +61,7 @@
                         <option value="toyota">Toyota</option>
                     </select>
                     <label for="year">year *</label>
-                    <select name="vehicleyear" type="text" id="vehicle-year" placeholder="Vehicle made" required>
+                    <select name="vehicleyear" type="text" id="vehicle-year" placeholder="Vehicle made" required autocomplete = off>
                         <option value="" disabled selected >Choose year</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
@@ -75,7 +75,7 @@
                         <option value="2014">2014</option>
                     </select>
                     <label for="vehicle-license">License plate *</label>
-                    <input name="Licenseplate" type="text" id="vehicle-license" required> <br>
+                    <input name="Licenseplate" type="text" id="vehicle-license" required autocomplete = off> <br>
                     <button onclick="submitForm()" class="btn-driver" >Register</button>
                 </form>
                 <br>

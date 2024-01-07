@@ -48,7 +48,7 @@ unset($_SESSION["from_server"])
         </section>
         <form class="form" action="../services/user-signup-service.php" method="post">
             <div class="sms-code">
-                <input type="text" class="code" name="received-verification-code" required>
+                <input type="text" class="code" name="received-verification-code" required autocomplete = "off">
             </div>
             <?php
             if(isset($_GET["error"]) && $_GET["error"] === "1") {
